@@ -160,5 +160,9 @@ kbd { display: inline-block; padding: 0 5px; border: 1px solid #9183af67; border
 }
 @media (prefers-reduced-motion: reduce) {
     :root { scroll-behavior: auto; }
-    *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    *, *::before, *::after { animation-duration: .01ms !important; transition-duration: 0s !important; }
 }
+
+.feature-card h3 a { text-decoration: none; }
+.feature-card h3 a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.feature-link { margin-top: 21px; }

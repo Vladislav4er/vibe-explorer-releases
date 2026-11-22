@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#14131b">
+    <meta name="description" content="Попробуйте возможности vibe-explorer для macOS в интерактивных примерах. Группы окон, вкладки, сплит, поиск, оформление и рабочие столы.">
+    <meta property="og:title" content="Все возможности vibe-explorer">
+    <meta property="og:description" content="Интерактивный гид по группам окон, вкладкам и сплиту на Mac.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://vladislav4er.github.io/vibe-explorer-releases/assets/vibe-explorer.png">
+    <link rel="canonical" href="https://vladislav4er.github.io/vibe-explorer-releases/features/">
+    <title>Все возможности — vibe-explorer</title>
+    <link rel="icon" type="image/png" href="../assets/vibe-explorer.png">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="./guide.css">
+    <link rel="stylesheet" href="./windows.css">
+    <link rel="stylesheet" href="./display.css">
+    <link rel="stylesheet" href="./workflow.css">
+    <script src="../downloads.js" defer></script>
+    <script src="./guide.js" defer></script>
+    <script src="./windows.js" defer></script>
+    <script src="./display.js" defer></script>
+    <script src="./workflow.js" defer></script>
+</head>
+<body class="guide">
+    <a class="skip-link" href="#main">Перейти к содержанию</a>
+    <header class="site-header">
+        <div class="container header-layout">
+            <a class="brand" href="../" aria-label="vibe-explorer — главная"><img width="38" height="38" src="../assets/vibe-explorer.png" alt=""><span>vibe<span class="brand-dash">-</span>explorer</span></a>
+            <nav class="navigation" aria-label="Страницы сайта"><a href="../">Главная</a><a aria-current="page" href="./">Возможности</a><a href="../#install">Установка</a></nav>
+            <a class="action action-small" href="https://github.com/Vladislav4er/vibe-explorer-releases/releases/download/v1.0.1/vibe-explorer-1.0.1-arm64.zip" data-download>Скачать</a>
+        </div>
+    </header>
+    <main id="main">
+        <div class="guide-intro">
+            <div class="container guide-intro-inner">
+                <h1>Все <span>возможности</span></h1>
+                <p>Попробуйте управлять окнами прямо здесь. Соберите рабочую группу, настройте вкладки и перенесите их на другой рабочий стол.</p>
+            </div>
+        </div>
+        <noscript><p class="container">Для управления демонстрациями включите JavaScript.</p></noscript>
+        <div class="container guide-layout">
+            <nav class="guide-index" aria-label="Разделы возможностей">
+                <a href="#groups"><i class="gi-tabs" aria-hidden="true"></i>Группы и вкладки</a>
+                <a href="#split"><i class="gi-split" aria-hidden="true"></i>Сплит</a>
+                <a href="#size"><i class="gi-size" aria-hidden="true"></i>Размер группы</a>
+                <a href="#appearance"><i class="gi-view" aria-hidden="true"></i>Вид и превью</a>
+                <a href="#search"><i class="gi-search" aria-hidden="true"></i>Поиск и клавиши</a>
+                <a href="#desktops"><i class="gi-desks" aria-hidden="true"></i>Рабочие столы</a>
+                <a href="#workspace"><i class="gi-save" aria-hidden="true"></i>Сохранение групп</a>
+                <a href="#updates"><i class="gi-update" aria-hidden="true"></i>Обновления</a>
+            </nav>
+            <div class="chapters">
+<section id="groups" class="chapter" aria-labelledby="groups-title">
+  <div class="chapter-copy">
+    <p class="eyebrow">Группы и вкладки</p>
+    <h2 id="groups-title">От двух окон к рабочей группе</h2>
+    <p>Зажмите <kbd>Shift</kbd> и перетащите окно на другое окно или панель группы. Добавляйте окна через плюс, переставляйте и переносите вкладки между группами. Вкладку можно открепить, а состав готовой группы заблокировать.</p>
+  </div>
+  <div class="lab">
+    <div class="wg-demo" data-window-groups role="group" aria-label="Демонстрация группировки и вкладок">
+      <div class="wg-desk wg-groups-desk">
+        <div class="wg-frame wg-work-group" data-groups-target="work" aria-label="Область проекта"></div>
+        <div class="wg-groups-side">
+          <div class="wg-frame" data-groups-target="reference" aria-label="Группа Справка"></div>
+          <div class="wg-loose" data-groups-target="outside" aria-label="Отдельные окна">
+            <p>Отдельные окна</p>
+            <div class="wg-loose-windows" data-loose-windows></div>
+          </div>
+        </div>
+        <span class="wg-shift-key" aria-hidden="true">⇧ Shift</span>
+      </div>
+      <div class="wg-controls" aria-label="Действия с выбранной вкладкой">
+        <button type="button" class="wg-emphasis" data-groups-action="group"><kbd>⇧</kbd> Сгруппировать</button>
+        <div class="wg-control-pair">
+          <button type="button" data-groups-action="left" aria-label="Переместить вкладку левее" title="Переместить вкладку левее">←</button>
+          <button type="button" data-groups-action="right" aria-label="Переместить вкладку правее" title="Переместить вкладку правее">→</button>
+        </div>
+        <button type="button" data-groups-action="transfer">В другую группу</button>
+        <button type="button" data-groups-action="detach">Открепить</button>
+        <button type="button" data-groups-action="lock" aria-pressed="false">Заблокировать состав</button>
+        <button type="button" class="wg-reset" data-groups-action="reset">Сбросить</button>
+      </div>
+      <p class="wg-status" data-groups-status aria-live="polite">Перетащите отдельное окно с Shift или нажмите «Сгруппировать».</p>
+      <noscript><p class="wg-status">Включите JavaScript, чтобы попробовать группировку в браузере.</p></noscript>
+    </div>
+  </div>
+<details class="chapter-note"><summary>Если вкладок много</summary><p>Прокрутите полосу вкладок или откройте «Все вкладки» в контекстном меню. При перетаскивании к краю полоса прокручивается сама. Крестик убирает окно из группы и сворачивает его. Клавишу группировки и задержку перед добавлением можно выбрать в настройках.</p></details>
+</section>
+
+<section id="split" class="chapter" aria-labelledby="split-title">
+  <div class="chapter-copy">
+    <p class="eyebrow">Сплит</p>
+    <h2 id="split-title">Два окна в одной вкладке</h2>
+    <p>Поставьте приложения рядом или одно над другим. Поменяйте их местами, замените одно из окон или передвиньте разделитель. У сплита сохраняются пропорции и ориентация, когда вы уходите на обычную вкладку и возвращаетесь.</p>
+  </div>
+  <div class="lab">
+    <div class="wg-demo" data-window-split role="group" aria-label="Демонстрация раскладки сплита">
+      <div class="wg-desk wg-split-desk">
+        <div class="wg-frame wg-split-frame" data-split-window></div>
+      </div>
+      <div class="wg-controls" aria-label="Действия со сплитом">
+        <button type="button" class="wg-emphasis" data-split-action="rotate">Сверху и снизу</button>
+        <button type="button" data-split-action="swap">Поменять местами</button>
+        <button type="button" data-split-action="toggle">Разъединить</button>
+        <label class="wg-range">Пропорции
+          <input type="range" data-split-range min="24" max="76" value="54" aria-label="Размер первой области в процентах">
+        </label>
+      </div>
+      <p class="wg-status" data-split-status aria-live="polite">Потяните разделитель. Вкладка «Браузер» оставит сплит готовым к возврату.</p>
+      <noscript><p class="wg-status">Включите JavaScript, чтобы попробовать сплит в браузере.</p></noscript>
+    </div>
+  </div>
+</section>
+
+<section id="size" class="chapter" aria-labelledby="size-title">
+    <div class="chapter-copy">
+        <p class="eyebrow">Геометрия окна</p>
+        <h2 id="size-title">Один размер для всех вкладок</h2>
+        <p>Потяните за угол и откройте соседнюю вкладку. Каждое приложение занимает место текущего окна. Двойной щелчок по свободной части панели разворачивает группу в пределах рабочего стола, повторный возвращает прежний размер.</p>
+    </div>
+    <div class="lab size-lab">
+        <div class="size-stage">
+            <div class="size-window">
+                <div class="size-bar">
+                    <b>Бюро</b>
+                    <button type="button" data-size-app="calendar" aria-pressed="true">Календарь</button>
+                    <button type="button" data-size-app="mail" aria-pressed="false">Почта</button>
+                </div>
+                <div class="size-content" data-size-pane="calendar">
+                    <h3>Понедельник</h3>
+                    <div class="size-event"><time>10:00</time><strong>Обсуждение проекта</strong></div>
+                    <div class="size-event"><time>14:30</time><strong>Просмотр макетов</strong></div>
+                </div>
+                <div class="size-content" data-size-pane="mail" hidden>
+                    <h3>Входящие</h3>
+                    <div class="size-letter"><i>М</i><span>Мария<br><strong>План на неделю</strong></span></div>
+                    <div class="size-letter"><i>А</i><span>Антон<br><strong>Заметки со встречи</strong></span></div>
+                </div>
+                <span class="size-grip" title="Изменить размер" aria-hidden="true"></span>
+            </div>
+        </div>
+        <div class="size-tools">
+            <label>Размер <input type="range" min="0" max="100" value="48" aria-label="Размер окна группы"></label>
+            <button type="button" class="size-zoom" aria-pressed="false">Развернуть</button>
+        </div>
+        <details class="size-settings">
+            <summary>Название и цвет группы</summary>
+            <div class="size-customize">
+                <label>Название <input type="text" maxlength="22" value="Бюро" aria-label="Название группы в демо" data-size-name></label>
+                <div role="group" aria-label="Цвет группы">
+                    <button type="button" style="--swatch:#febd84" aria-label="Персиковый" aria-pressed="true" data-swatch></button>
+                    <button type="button" style="--swatch:#aaa4ff" aria-label="Сиреневый" aria-pressed="false" data-swatch></button>
+                    <button type="button" style="--swatch:#85d2b1" aria-label="Мятный" aria-pressed="false" data-swatch></button>
+                </div>
+            </div>
+        </details>
+    </div>
+</section>
+
+<section id="appearance" class="chapter">
+  <div class="chapter-copy">
+    <p class="eyebrow">Оформление</p>
+    <h2>Панель в цвет окна</h2>
+    <p>В динамической теме панель подхватывает цвет шапки активного окна. Можно закрепить светлую, тёмную или системную тему и настроить ширину вкладок, высоту панели и шрифт.</p>
+    <p>Превью по наведению и динамическая тема используют разрешение macOS на запись экрана.</p>
+  </div>
+  <div class="lab view-lab">
+    <div class="view-controls">
+      <div class="view-segments" role="group" aria-label="Тема панели">
+        <button type="button" data-view-mode="dynamic" aria-pressed="true">Динамическая</button>
+        <button type="button" data-view-mode="light" aria-pressed="false">Светлая</button>
+        <button type="button" data-view-mode="dark" aria-pressed="false">Тёмная</button>
+      </div>
+      <label class="view-size">Ширина вкладок <input type="range" min="80" max="170" value="110" step="5"></label>
+      <button class="view-preview-button" type="button" aria-controls="appearance-preview" aria-pressed="false">Показать превью</button>
+    </div>
+    <div class="view-stage">
+      <div class="view-window" data-mode="dynamic" data-current="notes">
+        <div class="view-title" role="group" aria-label="Вкладки группы Студия">
+          <span class="view-group-name">Студия</span>
+          <button class="view-tab" type="button" data-view-app="notes" aria-pressed="true" aria-controls="appearance-notes"><span class="view-app-icon" aria-hidden="true">≡</span><em>Заметки</em></button>
+          <button class="view-tab" type="button" data-view-app="terminal" aria-pressed="false" aria-controls="appearance-terminal"><span class="view-app-icon view-terminal-icon" aria-hidden="true">›_</span><em>Терминал</em></button>
+        </div>
+        <div class="view-app" id="appearance-notes" data-view-content="notes">
+          <header class="view-app-header"><span class="view-traffic" aria-hidden="true"><i></i><i></i><i></i></span>Заметки</header>
+          <div class="view-page">
+            <strong>План на сегодня</strong>
+            <ul><li>Разобрать эскизы</li><li>Собрать прототип</li><li>Поделиться результатом</li></ul>
+          </div>
+        </div>
+        <div class="view-app view-terminal" id="appearance-terminal" data-view-content="terminal" hidden>
+          <header class="view-app-header"><span class="view-traffic" aria-hidden="true"><i></i><i></i><i></i></span>Терминал</header>
+          <div class="view-page"><pre><b>studio %</b> ls
+<span>drafts  prototype</span>
+<b>studio %</b> cd prototype</pre></div>
+        </div>
+        <div class="view-preview" id="appearance-preview" hidden>
+          <div class="view-preview-image" aria-hidden="true"><i></i><i></i><i></i></div>
+          <span class="view-preview-copy">Превью «Заметки»</span>
+        </div>
+      </div>
+    </div>
+  </div>
+<details class="chapter-note"><summary>Другие настройки оформления</summary><p>В настройках доступны прозрачность панели, размер и жирность текста и показ иконок. В контекстном меню отдельной вкладки можно задать её цвет и подпись для подсказок и меню.</p></details>
+</section>
+
+<section id="search" class="chapter" aria-labelledby="search-title">
+    <div class="chapter-copy">
+        <p class="eyebrow">Поиск и сочетания клавиш</p>
+        <h2 id="search-title">Открывайте нужное окно с клавиатуры</h2>
+        <p>Нажмите <kbd>⌃⌥S</kbd> и введите название окна, приложения или группы. Выберите результат стрелками и нажмите Enter. Сочетания <kbd>⌃⌥←</kbd> и <kbd>⌃⌥→</kbd> листают вкладки текущей группы.</p>
+    </div>
+    <div class="lab wf-lab wf-search" data-wf-search>
+        <div class="wf-search-scene">
+            <form class="wf-search-card" data-wf-search-form>
+                <div class="wf-chrome">
+                    <span class="wf-lights" aria-hidden="true"><i></i><i></i><i></i></span>
+                    <strong>Поиск окон</strong>
+                </div>
+                <div class="wf-search-field">
+                    <label class="wf-sr" for="wf-window-query">Название окна, приложения или группы</label>
+                    <span class="wf-glass" aria-hidden="true"></span>
+                    <input type="search" id="wf-window-query" role="combobox" autocomplete="off"
+                           placeholder="Окно, приложение или группа" aria-expanded="true" aria-autocomplete="list"
+                           aria-controls="wf-window-results" aria-activedescendant="wf-window-plan">
+                </div>
+                <div class="wf-search-results" id="wf-window-results" role="listbox" aria-label="Открытые окна">
+                    <button type="button" id="wf-window-plan" role="option" tabindex="-1" aria-selected="true"
+                            data-wf-window data-app="Заметки" data-group="Запуск" data-glyph="notes">
+                        <span class="wf-app-icon wf-app-icon--notes" aria-hidden="true"></span>
+                        <span class="wf-search-names"><strong>План запуска</strong><small>Заметки · Запуск</small></span>
+                    </button>
+                    <button type="button" id="wf-window-build" role="option" tabindex="-1" aria-selected="false"
+                            data-wf-window data-app="Терминал" data-group="Запуск" data-glyph="terminal">
+                        <span class="wf-app-icon wf-app-icon--terminal" aria-hidden="true"></span>
+                        <span class="wf-search-names"><strong>Сборка проекта</strong><small>Терминал · Запуск</small></span>
+                    </button>
+                    <button type="button" id="wf-window-sources" role="option" tabindex="-1" aria-selected="false"
+                            data-wf-window data-app="Браузер" data-group="Исследование" data-glyph="browser">
+                        <span class="wf-app-icon wf-app-icon--browser" aria-hidden="true"></span>
+                        <span class="wf-search-names"><strong>Материалы</strong><small>Браузер · Исследование</small></span>
+                    </button>
+                    <button type="button" id="wf-window-chat" role="option" tabindex="-1" aria-selected="false"
+                            data-wf-window data-app="Сообщения" data-group="Команда" data-glyph="chat">
+                        <span class="wf-app-icon wf-app-icon--chat" aria-hidden="true"></span>
+                        <span class="wf-search-names"><strong>Командный чат</strong><small>Сообщения · Команда</small></span>
+                    </button>
+                </div>
+                <p class="wf-empty" data-wf-empty hidden>Окна не найдены</p>
+                <div class="wf-search-hint"><span><kbd>↑</kbd> <kbd>↓</kbd> выбрать</span><span><kbd>↵</kbd> показать</span></div>
+            </form>
+
+            <div class="wf-search-result" data-wf-open-window data-glyph="notes">
+                <div class="wf-result-bar">
+                    <span data-wf-open-group>Запуск</span>
+                    <strong><i aria-hidden="true"></i><span data-wf-open-app>Заметки</span></strong>
+                </div>
+                <div class="wf-result-body">
+                    <p class="wf-mini-label">На переднем плане</p>
+                    <strong data-wf-open-title>План запуска</strong>
+                    <div class="wf-result-art" aria-hidden="true"><i></i><i></i><i></i></div>
+                </div>
+            </div>
+        </div>
+        <div class="wf-actions" role="group" aria-label="Сочетания клавиш в демо поиска">
+            <button type="button" class="wf-command" data-wf-find aria-label="Открыть строку поиска, Control Option S">
+                <kbd>⌃⌥S</kbd> <span>Поиск</span>
+            </button>
+            <div class="wf-step-buttons" role="group" aria-label="Переключение вкладок">
+                <button type="button" class="wf-command" data-wf-step="-1" aria-label="Предыдущая вкладка, Control Option влево"><kbd>⌃⌥←</kbd></button>
+                <button type="button" class="wf-command" data-wf-step="1" aria-label="Следующая вкладка, Control Option вправо"><kbd>⌃⌥→</kbd></button>
+            </div>
+        </div>
+        <p class="wf-sr" data-wf-search-status role="status" aria-atomic="true"></p>
+    </div>
+</section>
+
+<section id="desktops" class="chapter">
+  <div class="chapter-copy">
+    <p class="eyebrow">Рабочее пространство</p>
+    <h2>Одна группа на любом мониторе</h2>
+    <p>Перетащите видимое окно группы в Mission Control на другой обычный рабочий стол, и остальные доступные окна последуют за ним. Для переноса между мониторами есть команда в меню группы.</p>
+    <p>В сплите обе области остаются видимыми в Mission Control. Новые окна приложения тоже перемещаются на монитор группы, когда удаётся определить, где их разместить.</p>
+  </div>
+  <div class="lab view-lab">
+    <div class="view-controls">
+      <div class="view-segments" aria-label="Куда перенести группу" role="group">
+        <button type="button" data-view-kind="space" aria-pressed="true">Рабочие столы</button>
+        <button type="button" data-view-kind="monitor" aria-pressed="false">Мониторы</button>
+      </div>
+      <span class="view-move-hint" id="display-move-hint">Перетащите окно или выберите место</span>
+    </div>
+    <div class="view-places" data-kind="space" role="group" aria-label="Места для группы" aria-describedby="display-move-hint">
+      <div class="view-destination">
+        <button type="button" class="view-target" aria-pressed="true">
+          <span class="view-wallpaper" aria-hidden="true"><span class="view-target-marker"></span></span>
+          <span class="view-destination-name">Рабочий стол 1</span>
+        </button>
+        <div class="view-drag-window" draggable="true" aria-hidden="true" title="Перетащить окно группы">
+          <span class="view-drag-title"><span class="view-drag-dots"><i></i><i></i><i></i></span>Заметки</span>
+          <span class="view-drag-content"><i></i><i></i><i></i></span>
+        </div>
+      </div>
+      <div class="view-destination">
+        <button type="button" class="view-target" aria-pressed="false">
+          <span class="view-wallpaper" aria-hidden="true"><span class="view-target-marker"></span></span>
+          <span class="view-destination-name">Рабочий стол 2</span>
+        </button>
+      </div>
+    </div>
+    <p class="view-location" role="status">Группа «Студия» на рабочем столе 1</p>
+  </div>
+<details class="chapter-note"><summary>Какие окна видны в Mission Control</summary><p>В автоматическом режиме обзор может показывать дополнительные окна многооконного приложения. Режим «Только выбранные» сворачивает доступные фоновые окна, а «Быстрое переключение» оставляет их за активной вкладкой.</p></details>
+</section>
+
+<section id="workspace" class="chapter" aria-labelledby="workspace-title">
+    <div class="chapter-copy">
+        <p class="eyebrow">Рабочие группы</p>
+        <h2 id="workspace-title">Возвращайтесь к своим группам</h2>
+        <p>Значок в строке меню macOS открывает список групп. Состав и оформление сохраняются автоматически. После перезапуска открытые окна снова привязываются к группам, а закрытые остаются ожидающими.</p>
+    </div>
+    <div class="lab wf-lab wf-work" data-wf-workspace>
+        <div class="wf-desktop-menu">
+            <span class="wf-desktop-glyph" aria-hidden="true"></span>
+            <strong>Строка меню macOS</strong>
+            <button type="button" class="wf-menubar-toggle" data-wf-menu-button aria-controls="wf-groups-popover" aria-expanded="true">
+                <span class="wf-menu-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+                <span>vibe-explorer</span>
+            </button>
+        </div>
+        <div class="wf-work-scene">
+            <div class="wf-popover" id="wf-groups-popover" role="group" aria-labelledby="wf-groups-label" data-wf-menu>
+                <div class="wf-popover-title" id="wf-groups-label">
+                    <span class="wf-menu-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+                    <strong>Группы</strong>
+                </div>
+                <button type="button" class="wf-work-group" data-wf-group="launch" aria-pressed="true" aria-controls="wf-group-window">
+                    <span class="wf-group-dot" aria-hidden="true"></span>
+                    <span><strong>Запуск</strong><small>3 окна открыты</small></span>
+                    <span class="wf-chev" aria-hidden="true"></span>
+                </button>
+                <button type="button" class="wf-work-group" data-wf-group="research" aria-pressed="false" aria-controls="wf-group-window">
+                    <span class="wf-group-dot" aria-hidden="true"></span>
+                    <span><strong>Исследование</strong><small>1 открыто · 1 ожидает</small></span>
+                    <span class="wf-chev" aria-hidden="true"></span>
+                </button>
+                <button type="button" class="wf-work-group" data-wf-group="team" aria-pressed="false" aria-controls="wf-group-window">
+                    <span class="wf-group-dot" aria-hidden="true"></span>
+                    <span><strong>Команда</strong><small>2 окна открыты</small></span>
+                    <span class="wf-chev" aria-hidden="true"></span>
+                </button>
+            </div>
+            <div class="wf-work-viewport">
+                <div class="wf-work-window" id="wf-group-window" data-wf-work-window data-group-tone="launch">
+                    <div class="wf-work-bar">
+                        <strong data-wf-work-title>Запуск</strong>
+                        <div class="wf-work-tabs" data-wf-work-tabs aria-label="Вкладки группы">
+                            <span class="wf-work-tab">Заметки</span>
+                            <span class="wf-work-tab">Терминал</span>
+                            <span class="wf-work-tab">Браузер</span>
+                        </div>
+                    </div>
+                    <div class="wf-chrome">
+                        <span class="wf-lights" aria-hidden="true"><i></i><i></i><i></i></span>
+                        <strong data-wf-work-app>Заметки</strong>
+                        <button type="button" class="wf-minimize" data-wf-minimize aria-label="Свернуть окно в демо">−</button>
+                    </div>
+                    <div class="wf-work-body">
+                        <p class="wf-mini-label" data-wf-work-context>3 окна открыты</p>
+                        <strong data-wf-work-document>План запуска</strong>
+                        <div class="wf-work-art" aria-hidden="true"><i></i><i></i><i></i></div>
+                    </div>
+                </div>
+                <div class="wf-work-empty" data-wf-work-empty hidden>
+                    <span class="wf-menu-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+                    <strong data-wf-work-empty-label>Окно свёрнуто</strong>
+                </div>
+            </div>
+        </div>
+        <div class="wf-work-footer">
+            <div class="wf-actions" role="group" aria-label="Восстановление группы в демо">
+                <button type="button" class="wf-command" data-wf-restore>
+                    <kbd>⌘⇧R</kbd> <span>Вернуть панель</span>
+                </button>
+                <button type="button" class="wf-command" data-wf-restart>Перезапуск</button>
+            </div>
+            <details class="wf-backup">
+                <summary>Импорт и экспорт в JSON</summary>
+                <p>В приложении откройте «Настройки → Доступ и данные → Резервная копия». Файл содержит группы и настройки.</p>
+            </details>
+            <p class="wf-badge-note"><span class="wf-mini-badge" aria-hidden="true">3</span> Счётчики Dock можно включить в настройках. Они видны у приложений, которые их передают.</p>
+        </div>
+        <p class="wf-sr" data-wf-workspace-status role="status" aria-atomic="true"></p>
+    </div>
+<details class="chapter-note"><summary>Если окно больше недоступно</summary><p>Откройте контекстное меню группы в строке меню и выберите «Заменить недоступное окно». Укажите другое открытое окно, чтобы занять место ожидающей вкладки.</p></details>
+</section>
+
+<section id="updates" class="chapter" aria-labelledby="updates-title">
+    <div class="chapter-copy">
+        <p class="eyebrow">Обновления</p>
+        <h2 id="updates-title">Новая версия прямо в приложении</h2>
+        <p>Проверяйте обновления в настройках vibe-explorer или включите автоматическую установку. Здесь можно пройти пример обновления с версии 1.0.0 до 1.0.1.</p>
+    </div>
+    <div class="lab update-lab">
+        <div class="update-card">
+            <img src="../assets/vibe-explorer.png" width="68" height="68" alt="">
+            <div><strong>vibe-explorer</strong><span data-update-installed>Версия 1.0.0</span></div>
+            <p data-update-message role="status">Можно проверить, вышло ли обновление.</p>
+            <button class="action action-secondary" type="button" data-update-action>Проверить обновления…</button>
+        </div>
+    </div>
+</section>
+            </div>
+        </div>
+    </main>
+    <footer class="site-footer">
+        <div class="container footer-layout">
+            <a class="brand" href="../"><img src="../assets/vibe-explorer.png" width="30" height="30" alt="">vibe-explorer</a>
+            <a href="../#install">Как установить</a>
+        </div>
+    </footer>
+</body>
+</html>
