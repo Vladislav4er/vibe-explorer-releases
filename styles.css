@@ -115,6 +115,13 @@ kbd { display: inline-block; padding: 0 5px; border: 1px solid #9183af67; border
 
 .site-footer { border-top: 1px solid #ffffff14; padding-block: 21px; }
 .site-footer .brand { font-size: .97rem; }
+.footer-author { display: flex; align-items: baseline; justify-content: center; flex-wrap: wrap; gap: 4px 16px; color: var(--muted); font-size: .94rem; }
+.footer-author strong { color: var(--text); font-weight: 600; }
+.site-footer .footer-author a { text-decoration: underline; text-decoration-color: #71677b; text-underline-offset: 3px; }
+@media (max-width: 800px) {
+    .footer-layout { flex-wrap: wrap; }
+    .footer-author { order: 1; flex-basis: 100%; justify-content: flex-start; }
+}
 
 @media (min-width: 1300px) {
     .hero-description { max-width: 25rem; }
