@@ -114,9 +114,9 @@ kbd { display: inline-block; padding: 0 5px; border: 1px solid #9183af67; border
 
 .site-footer { border-top: 1px solid #ffffff14; padding-block: 21px; }
 .site-footer .brand { font-size: .97rem; }
-.footer-author { display: flex; align-items: center; gap: 3px; font-size: .94rem; }
+.footer-author { display: flex; align-items: center; gap: 3px; font-size: .94rem; line-height: 1.25; }
 .footer-author strong { margin-right: 7px; color: var(--text); font-weight: 600; }
-.footer-author a { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 9px; }
+.footer-author a { display: grid; flex: 0 0 40px; place-items: center; height: 40px; border-radius: 9px; }
 .footer-author a:hover, .footer-author a:focus-visible { background: #ffffff0d; }
 @media (max-width: 800px) {
     .footer-layout { flex-wrap: wrap; }
