@@ -4,12 +4,12 @@
     const releases = `https://github.com/${repository}/releases`;
 
     async function refreshDownload() {
-        const response = await fetch(endpoint, { headers: { Accept: "application/vnd.github+json" } });
+        const response = await fetch(endpoint, { cache: "no-cache", headers: { Accept: "application/vnd.github+json" } });
         if (!response.ok) return;
 
         const release = await response.json();
         const tag = release.tag_name;
-        if (typeof tag !== "string" || !/^v\d+\.\d+\.\d+$/.test(tag) || release.draft || release.prerelease) return;
+        if (typeof tag !== "string" || !/^v\d+\.\d+(?:\.\d+)?$/.test(tag) || release.draft || release.prerelease) return;
 
         const filename = `vibe-explorer-${tag.slice(1)}-arm64.zip`;
         const url = `${releases}/download/${tag}/${filename}`;
