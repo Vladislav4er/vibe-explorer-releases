@@ -1,21 +1,36 @@
 (() => {
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const english = document.documentElement.lang === "en";
+    const text = (ru, en) => english ? en : ru;
+    const quote = (value) => text("«" + value + "»", "“" + value + "”");
     const examples = {
         notes: {
-            label: "Заметки", glyph: "≡",
-            body: '<h3>План запуска</h3><ul class="wg-task-list"><li>Собрать материалы</li><li>Проверить макет</li><li>Опубликовать сборку</li></ul>',
+            label: text("Заметки", "Notes"), glyph: "≡",
+            body: text(
+                '<h3>План запуска</h3><ul class="wg-task-list"><li>Собрать материалы</li><li>Проверить макет</li><li>Опубликовать сборку</li></ul>',
+                '<h3>Launch plan</h3><ul class="wg-task-list"><li>Gather materials</li><li>Review the layout</li><li>Publish the build</li></ul>'
+            ),
         },
         terminal: {
-            label: "Терминал", glyph: "›",
-            body: '<p class="wg-terminal-code"><strong>❯</strong> swift build<br><span class="wg-build-result">Сборка завершена</span><br><strong>❯</strong> ▍</p>',
+            label: text("Терминал", "Terminal"), glyph: "›",
+            body: text(
+                '<p class="wg-terminal-code"><strong>❯</strong> swift build<br><span class="wg-build-result">Сборка завершена</span><br><strong>❯</strong> ▍</p>',
+                '<p class="wg-terminal-code"><strong>❯</strong> swift build<br><span class="wg-build-result">Build complete</span><br><strong>❯</strong> ▍</p>'
+            ),
         },
         browser: {
-            label: "Браузер", glyph: "◉",
-            body: '<h3>Материалы проекта</h3><p>Коллекция ссылок и макетов</p><span class="wg-bookmark">Референсы интерфейса</span>',
+            label: text("Браузер", "Browser"), glyph: "◉",
+            body: text(
+                '<h3>Материалы проекта</h3><p>Коллекция ссылок и макетов</p><span class="wg-bookmark">Референсы интерфейса</span>',
+                '<h3>Project resources</h3><p>Links and mockups</p><span class="wg-bookmark">Interface references</span>'
+            ),
         },
         docs: {
-            label: "Документы", glyph: "▤",
-            body: '<h3>Гайд по выпуску</h3><p>Открыть перечень проверок перед публикацией.</p>',
+            label: text("Документы", "Documents"), glyph: "▤",
+            body: text(
+                '<h3>Гайд по выпуску</h3><p>Открыть перечень проверок перед публикацией.</p>',
+                '<h3>Release guide</h3><p>Open the checklist before publishing.</p>'
+            ),
         },
     };
 
@@ -64,7 +79,7 @@
         const strip = element("div", "wg-strip");
         const list = element("div", "wg-tabs");
         list.setAttribute("role", "tablist");
-        list.setAttribute("aria-label", "Вкладки · " + label);
+        list.setAttribute("aria-label", text("Вкладки · " + label, label + " tabs"));
         list.dataset.panel = panelID;
         strip.append(element("span", "wg-group-name", label), list);
         return { strip, list };
@@ -133,8 +148,11 @@
         };
         const commands = Object.fromEntries(Array.from(demo.querySelectorAll("[data-groups-action]"),
             (node) => [node.dataset.groupsAction, node]));
-        const names = { work: "Проект", reference: "Справка" };
-        const instructions = "Перетащите отдельное окно с Shift или нажмите «Сгруппировать».";
+        const names = { work: text("Проект", "Project"), reference: text("Справка", "Reference") };
+        const instructions = text(
+            "Перетащите отдельное окно с Shift или нажмите «Сгруппировать».",
+            "Hold Shift and drag a standalone window, or click Group Windows."
+        );
         let model, drag, dropTarget;
 
         function reset() {
@@ -167,7 +185,7 @@
             });
             const add = button("wg-plus", "+");
             add.dataset.groupsPlus = id;
-            add.setAttribute("aria-label", "Добавить окно в группу " + names[id]);
+            add.setAttribute("aria-label", text("Добавить окно в группу " + names[id], "Add a window to " + names[id]));
             add.setAttribute("aria-expanded", String(model.picker === id));
             add.disabled = model.locked[id] || !model.windows.outside.length;
             strip.append(add);
@@ -176,8 +194,8 @@
             if (model.picker === id) {
                 const picker = element("div", "wg-picker");
                 picker.setAttribute("role", "group");
-                picker.setAttribute("aria-label", "Выбор открытого окна");
-                picker.append(element("p", "", "Открытые окна"));
+                picker.setAttribute("aria-label", text("Выбор открытого окна", "Choose an open window"));
+                picker.append(element("p", "", text("Открытые окна", "Open windows")));
                 model.windows.outside.forEach((member) => {
                     const option = button("", examples[member].label);
                     option.dataset.groupsPick = member;
@@ -200,7 +218,9 @@
                 node.setAttribute("aria-pressed", String(id === model.looseChoice));
                 return node;
             });
-            loose.replaceChildren(...(looseWindows.length ? looseWindows : [element("p", "wg-loose-empty", "Все окна распределены")]));
+            loose.replaceChildren(...(looseWindows.length ? looseWindows : [
+                element("p", "wg-loose-empty", text("Все окна распределены", "All windows are grouped")),
+            ]));
 
             const { active, windows, selected, locked } = model;
             const index = windows[active].indexOf(selected[active]);
@@ -246,7 +266,7 @@
             destination.splice(anchorIndex < 0 ? destination.length : anchorIndex + (anchor.after ? 1 : 0), 0, id);
             model.picker = null;
 
-            const label = "«" + examples[id].label + "»";
+            const label = quote(examples[id].label);
             const wasGrouped = grouped(to);
             if (to === "work") model.grouped = true;
             if (from !== to && from !== "outside" && model.selected[from] === id) model.selected[from] = source[0];
@@ -256,10 +276,11 @@
             }
             if (from === "outside") model.looseChoice = source[0];
             if (to === "outside") model.looseChoice = id;
-            const message = from === to ? "Порядок вкладок изменён."
-                : to === "outside" ? label + " стало отдельным окном."
-                : wasGrouped ? label + " в группе «" + names[to] + "»."
-                : "Окна собраны в группу «" + names[to] + "».";
+            const targetName = quote(names[to] ?? "");
+            const message = from === to ? text("Порядок вкладок изменён.", "Tabs reordered.")
+                : to === "outside" ? text(label + " стало отдельным окном.", label + " is now a standalone window.")
+                : wasGrouped ? text(label + " в группе " + targetName + ".", label + " is now in " + targetName + ".")
+                : text("Окна собраны в группу " + targetName + ".", "Windows grouped in " + targetName + ".");
             render(message, previous);
         }
 
@@ -282,8 +303,9 @@
             if (action === "lock") {
                 model.locked[from] = !model.locked[from];
                 model.picker = null;
-                const state = model.locked[from] ? "заблокирован" : "разблокирован";
-                render("Состав группы «" + names[from] + "» " + state + ".");
+                const state = model.locked[from] ? text("заблокирован", "locked") : text("разблокирован", "unlocked");
+                const name = quote(names[from]);
+                render(text("Состав группы " + name + " " + state + ".", name + " is " + state + "."));
             }
         }
 
@@ -313,7 +335,8 @@
                 document.getElementById("wg-groups-" + model.active + "-" + model.selected[model.active])?.focus();
             } else if (node?.dataset.groupsLoose) {
                 model.looseChoice = node.dataset.groupsLoose;
-                render("Выбрано отдельное окно «" + examples[model.looseChoice].label + "».");
+                const name = quote(examples[model.looseChoice].label);
+                render(text("Выбрано отдельное окно " + name + ".", "Selected " + name + "."));
                 loose.querySelector('[data-groups-loose="' + model.looseChoice + '"]')?.focus();
             } else {
                 const target = event.target.closest("[data-groups-target]")?.dataset.groupsTarget;
@@ -372,7 +395,7 @@
             const current = drag;
             drag = null;
             if (current.from === "outside" && !event.shiftKey) {
-                status.textContent = "Удерживайте Shift до отпускания окна.";
+                status.textContent = text("Удерживайте Shift до отпускания окна.", "Keep holding Shift until you drop the window.");
                 return;
             }
             if (current.from === "outside") shiftCue();
@@ -415,10 +438,14 @@
         function picker(index, slots) {
             const select = element("select", "wg-picker-select");
             select.dataset.splitPick = index;
-            const position = vertical ? (index === 0 ? "верхней" : "нижней") : (index === 0 ? "левой" : "правой");
-            select.setAttribute("aria-label", pair ? "Заменить окно " + position + " области" : "Выбрать окно для " + position + " области");
+            const position = vertical ? (index === 0 ? text("верхней", "top") : text("нижней", "bottom"))
+                : (index === 0 ? text("левой", "left") : text("правой", "right"));
+            const action = pair
+                ? text("Заменить окно " + position + " области", "Replace the window in the " + position + " pane")
+                : text("Выбрать окно для " + position + " области", "Choose a window for the " + position + " pane");
+            select.setAttribute("aria-label", action);
             if (!pair) {
-                const placeholder = element("option", "", "Выбрать окно");
+                const placeholder = element("option", "", text("Выбрать окно", "Choose a window"));
                 placeholder.value = "";
                 placeholder.disabled = true;
                 select.append(placeholder);
@@ -441,7 +468,7 @@
                 return pane;
             }
             const pane = element("div", "wg-empty-pane");
-            pane.append(element("p", "", "Окно для области"), select);
+            pane.append(element("p", "", text("Окно для области", "Window for this pane")), select);
             return pane;
         }
 
@@ -450,7 +477,7 @@
             body.dataset.orientation = vertical ? "stack" : "side";
             const divider = element("div", "wg-divider");
             divider.setAttribute("role", "separator");
-            divider.setAttribute("aria-label", "Разделитель окон");
+            divider.setAttribute("aria-label", text("Разделитель окон", "Window divider"));
             divider.setAttribute("aria-orientation", vertical ? "horizontal" : "vertical");
             divider.setAttribute("aria-valuemin", minimum);
             divider.setAttribute("aria-valuemax", maximum);
@@ -463,7 +490,7 @@
             const previous = animate && !reducedMotion.matches ? windowPositions(demo) : null;
             const activeSplit = view === "pair" || view === "draft";
             const panelID = "wg-split-panel";
-            const { strip, list } = tabStrip("Проект", panelID);
+            const { strip, list } = tabStrip(text("Проект", "Project"), panelID);
             if (pair) {
                 const name = pair.map((id) => examples[id].label).join(" + ");
                 tab(list, "pair", name, view === "pair").dataset.splitTab = "pair";
@@ -476,15 +503,15 @@
             else {
                 node.id = panelID;
                 node.setAttribute("role", "region");
-                node.setAttribute("aria-label", "Настройка областей сплита");
+                node.setAttribute("aria-label", text("Настройка областей сплита", "Set up split panes"));
                 list.firstElementChild.tabIndex = 0;
             }
             frame.replaceChildren(strip, node);
             commands.rotate.disabled = !activeSplit;
             commands.swap.disabled = view !== "pair";
-            commands.rotate.textContent = vertical ? "Рядом" : "Сверху и снизу";
-            commands.toggle.textContent = activeSplit ? (pair ? "Разъединить" : "Отменить сплит")
-                : pair ? "Открыть сплит" : "Создать сплит";
+            commands.rotate.textContent = vertical ? text("Рядом", "Side by side") : text("Сверху и снизу", "Stack vertically");
+            commands.toggle.textContent = activeSplit ? (pair ? text("Разъединить", "Unpair windows") : text("Отменить сплит", "Cancel split"))
+                : pair ? text("Открыть сплит", "Open split") : text("Создать сплит", "Create split");
             range.disabled = !activeSplit;
             showRatio(ratio);
             if (message) status.textContent = message;
@@ -494,7 +521,8 @@
         function selectTab(node) {
             view = node.dataset.splitTab;
             draft = null;
-            const message = view === "pair" ? "Сплит открыт с прежними пропорциями." : "Открыта вкладка «" + examples[view].label + "».";
+            const message = view === "pair" ? text("Сплит открыт с прежними пропорциями.", "Split reopened with its previous proportions.")
+                : text("Открыта вкладка " + quote(examples[view].label) + ".", "Opened the " + quote(examples[view].label) + " tab.");
             render(message);
             document.getElementById("wg-split-panel-" + view)?.focus();
         }
@@ -503,26 +531,27 @@
             if (commands[action].disabled) return;
             if (action === "rotate") {
                 vertical = !vertical;
-                render(vertical ? "Окна расположены одно над другим." : "Окна расположены рядом.", true);
+                render(vertical ? text("Окна расположены одно над другим.", "The windows are stacked vertically.")
+                    : text("Окна расположены рядом.", "The windows are side by side."), true);
             }
             if (action === "swap") {
                 pair.reverse();
-                render("Окна поменялись местами.", true);
+                render(text("Окна поменялись местами.", "The windows swapped places."), true);
             }
             if (action === "toggle") {
                 if (view === "pair" || view === "draft") {
                     view = pair?.[0] || draft?.find(Boolean) || "notes";
                     pair = null;
                     draft = null;
-                    render("Окна снова открываются на отдельных вкладках.");
+                    render(text("Окна снова открываются на отдельных вкладках.", "The windows are back in separate tabs."));
                 } else if (pair) {
                     view = "pair";
-                    render("Сплит открыт с прежними пропорциями.");
+                    render(text("Сплит открыт с прежними пропорциями.", "Split reopened with its previous proportions."));
                 } else {
                     view = "draft";
                     draft = [null, null];
                     ratio = 50;
-                    render("Назначьте окно для каждой области.");
+                    render(text("Назначьте окно для каждой области.", "Choose a window for each pane."));
                     frame.querySelector("[data-split-pick]")?.focus();
                 }
             }
@@ -544,8 +573,11 @@
                 pair = slots;
                 draft = null;
                 view = "pair";
-                render("Окна собраны в одну вкладку сплита.");
-            } else render("Выбрано окно «" + examples[select.value].label + "».");
+                render(text("Окна собраны в одну вкладку сплита.", "Both windows are in one split tab."));
+            } else {
+                const choice = quote(examples[select.value].label);
+                render(text("Выбрано окно " + choice + ".", "Selected " + choice + "."));
+            }
             frame.querySelector('[data-split-pick="' + index + '"]')?.focus();
         });
 

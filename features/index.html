@@ -10,18 +10,22 @@
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://vladislav4er.github.io/vibe-explorer-releases/assets/vibe-explorer.png">
     <link rel="canonical" href="https://vladislav4er.github.io/vibe-explorer-releases/features/">
+    <link rel="alternate" hreflang="ru" href="https://vladislav4er.github.io/vibe-explorer-releases/features/">
+    <link rel="alternate" hreflang="en" href="https://vladislav4er.github.io/vibe-explorer-releases/en/features/">
+    <link rel="alternate" hreflang="x-default" href="https://vladislav4er.github.io/vibe-explorer-releases/features/">
     <title>Все возможности — Vibe Explorer</title>
     <link rel="icon" type="image/png" href="../assets/vibe-explorer.png">
-    <link rel="stylesheet" href="../styles.css?v=wordmark">
+    <link rel="stylesheet" href="../styles.css?v=language">
     <link rel="stylesheet" href="./guide.css">
     <link rel="stylesheet" href="./windows.css">
     <link rel="stylesheet" href="./display.css">
     <link rel="stylesheet" href="./workflow.css">
     <script src="../downloads.js" defer></script>
-    <script src="./guide.js" defer></script>
-    <script src="./windows.js" defer></script>
-    <script src="./display.js" defer></script>
-    <script src="./workflow.js" defer></script>
+    <script src="./guide.js?v=language" defer></script>
+    <script src="./windows.js?v=language" defer></script>
+    <script src="./display.js?v=language" defer></script>
+    <script src="./workflow.js?v=language" defer></script>
+    <script src="../language.js" defer></script>
 </head>
 <body class="guide">
     <a class="skip-link" href="#main">Перейти к содержанию</a>
@@ -29,7 +33,13 @@
         <div class="container header-layout">
             <a class="brand" href="../" aria-label="Vibe Explorer — главная"><img width="38" height="38" src="../assets/vibe-explorer.png" alt=""><span>Vibe <span class="brand-accent">Explorer</span></span></a>
             <nav class="navigation" aria-label="Страницы сайта"><a href="../">Главная</a><a aria-current="page" href="./">Возможности</a><a href="../#install">Установка</a></nav>
-            <a class="action action-small" href="https://github.com/Vladislav4er/vibe-explorer-releases/releases/download/v1.0.1/vibe-explorer-1.0.1-arm64.zip" data-download>Скачать</a>
+            <div class="header-actions">
+                <nav class="language-switch" aria-label="Язык сайта">
+                    <a href="./" hreflang="ru" lang="ru" aria-label="Русский" aria-current="page">RU</a>
+                    <a href="../en/features/" hreflang="en" lang="en" aria-label="English">EN</a>
+                </nav>
+                <a class="action action-small" href="https://github.com/Vladislav4er/vibe-explorer-releases/releases/download/v1.0.1/vibe-explorer-1.0.1-arm64.zip" data-download>Скачать</a>
+            </div>
         </div>
     </header>
     <main id="main">

@@ -1,4 +1,6 @@
 (() => {
+    const english = document.documentElement.lang === "en";
+    const zoomLabels = english ? ["Maximize", "Restore size"] : ["Развернуть", "Вернуть размер"];
     const index = document.querySelector(".guide-index");
     const links = [...index.querySelectorAll("a")];
     const chapters = links.map(link => document.querySelector(link.hash));
@@ -53,7 +55,7 @@
         win.style.top = expanded ? "0" : "5%";
         win.style.borderRadius = expanded ? "0" : "";
         zoom.setAttribute("aria-pressed", String(expanded));
-        zoom.textContent = expanded ? "Вернуть размер" : "Развернуть";
+        zoom.textContent = zoomLabels[expanded ? 1 : 0];
         grip.hidden = expanded;
     }
 
@@ -89,7 +91,7 @@
     }));
     const nameField = lab.querySelector("[data-size-name]");
     const groupName = lab.querySelector(".size-bar b");
-    nameField.addEventListener("input", () => { groupName.textContent = nameField.value.trim() || "Бюро"; });
+    nameField.addEventListener("input", () => { groupName.textContent = nameField.value.trim() || nameField.defaultValue; });
     nameField.addEventListener("blur", () => { nameField.value = groupName.textContent; });
     const swatches = lab.querySelectorAll("[data-swatch]");
     for (const swatch of swatches) {
@@ -104,10 +106,16 @@
     const updateAction = update.querySelector("[data-update-action]");
     const installed = update.querySelector("[data-update-installed]");
     const status = update.querySelector("[data-update-message]");
+    const nextVersion = english
+        ? ["Version 1.0.0", "Version 1.0.1 is available.", "Install and Restart"]
+        : ["Версия 1.0.0", "Доступна версия 1.0.1.", "Установить и перезапустить"];
+    const updated = english
+        ? ["Version 1.0.1", "Update installed. Your groups are available after restart.", "Replay Demo"]
+        : ["Версия 1.0.1", "Обновление установлено. Группы доступны после перезапуска.", "Повторить демо"];
     const updateSteps = [
-        ["Версия 1.0.0", "Можно проверить, вышло ли обновление.", "Проверить обновления…"],
-        ["Версия 1.0.0", "Доступна версия 1.0.1.", "Установить и перезапустить"],
-        ["Версия 1.0.1", "Обновление установлено. Группы доступны после перезапуска.", "Повторить демо"]
+        [installed.textContent, status.textContent, updateAction.textContent],
+        nextVersion,
+        updated
     ];
     let step = 0;
     updateAction.addEventListener("click", () => {

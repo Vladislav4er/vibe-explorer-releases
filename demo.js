@@ -1,4 +1,7 @@
 (() => {
+  const messages = document.documentElement.lang === "en"
+    ? { grouped: "Terminal was added to the group with Shift.", switched: "Tab switched.", split: "Notes and Terminal are open side by side in one tab." }
+    : { grouped: "Терминал добавлен в группу с помощью Shift.", switched: "Вкладка переключена.", split: "Заметки и Терминал открыты рядом в общей вкладке." };
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
   document.querySelectorAll("[data-vibe-demo]").forEach((demo) => {
@@ -41,7 +44,7 @@
       window.clearTimeout(groupTimer);
       const finish = () => show("notes", {
         phase: "joined", paired: false, mode: "group",
-        message: announce ? "Терминал добавлен в группу с помощью Shift." : "",
+        message: announce ? messages.grouped : "",
       });
       if (reducedMotion.matches) {
         finish();
@@ -63,7 +66,7 @@
         : current === "notes" ? "terminal" : "notes";
       show(next, {
         phase: "joined", mode: "switch",
-        message: announce ? "Вкладка переключена." : "",
+        message: announce ? messages.switched : "",
       });
     }
 
@@ -71,7 +74,7 @@
       window.clearTimeout(groupTimer);
       show("split", {
         phase: "joined", paired: true, mode: "split",
-        message: announce ? "Заметки и Терминал открыты рядом в общей вкладке." : "",
+        message: announce ? messages.split : "",
       });
     }
 

@@ -1,4 +1,6 @@
 (() => {
+  const english = document.documentElement.lang === 'en';
+
   function setPressed(buttons, selected) {
     for (const button of buttons) {
       button.setAttribute('aria-pressed', String(button === selected));
@@ -26,7 +28,8 @@
       previewButton.setAttribute('aria-pressed', String(explicitPreview));
       if (!tab) return;
       preview.dataset.preview = tab.dataset.viewApp;
-      previewCaption.textContent = `Превью «${tab.querySelector('em').textContent}»`;
+      const name = tab.querySelector('em').textContent;
+      previewCaption.textContent = english ? `“${name}” preview` : `Превью «${name}»`;
       preview.style.setProperty('--view-preview-left', `${tab.offsetLeft}px`);
     }
 
@@ -97,8 +100,13 @@
     const names = destinations.map((destination) => destination.querySelector('.view-destination-name'));
     const windowView = section.querySelector('.view-drag-window');
     const location = section.querySelector('.view-location');
-    const labels = { space: ['Рабочий стол 1', 'Рабочий стол 2'], monitor: ['Встроенный экран', 'Внешний монитор'] };
-    const locations = { space: ['на рабочем столе 1', 'на рабочем столе 2'], monitor: ['на встроенном экране', 'на внешнем мониторе'] };
+    const groupName = english ? 'Studio' : 'Студия';
+    const labels = english
+      ? { space: ['Desktop 1', 'Desktop 2'], monitor: ['Built-in display', 'External monitor'] }
+      : { space: ['Рабочий стол 1', 'Рабочий стол 2'], monitor: ['Встроенный экран', 'Внешний монитор'] };
+    const locations = english
+      ? { space: ['on Desktop 1', 'on Desktop 2'], monitor: ['on the built-in display', 'on the external monitor'] }
+      : { space: ['на рабочем столе 1', 'на рабочем столе 2'], monitor: ['на встроенном экране', 'на внешнем мониторе'] };
     const currentPlaces = { space: 0, monitor: 0 };
     let kind = 'space';
 
@@ -112,7 +120,7 @@
       const destination = destinations[index];
       if (windowView.parentElement !== destination) destination.append(windowView);
       setPressed(targets, targets[index]);
-      location.textContent = `Группа «Студия» ${locations[kind][index]}`;
+      location.textContent = english ? `The “${groupName}” group is ${locations[kind][index]}` : `Группа «${groupName}» ${locations[kind][index]}`;
     }
 
     function moveTo(index) {
@@ -125,7 +133,7 @@
     windowView.addEventListener('dragstart', (event) => {
       if (!event.dataTransfer) return;
       event.dataTransfer.effectAllowed = 'move';
-      event.dataTransfer.setData('text/plain', 'Студия');
+      event.dataTransfer.setData('text/plain', groupName);
       windowView.dataset.dragging = '';
     });
     windowView.addEventListener('dragend', clearDrag);

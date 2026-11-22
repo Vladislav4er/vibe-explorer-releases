@@ -45,6 +45,11 @@ h1, h2, h3, p { margin: 0; }
 .navigation { display: flex; align-items: center; gap: clamp(20px, 3vw, 40px); }
 .navigation a, .site-footer a:not(.brand) { font-size: .94rem; color: var(--muted); text-decoration: none; transition: color .2s; }
 .navigation a:hover, .site-footer a:hover { color: var(--text); }
+.header-actions { display: flex; align-items: center; gap: 12px; }
+.language-switch { display: inline-flex; align-items: center; gap: 2px; padding: 3px; border: 1px solid var(--line); border-radius: 9px; }
+.language-switch a { display: grid; min-width: 30px; min-height: 30px; place-items: center; border-radius: 5px; color: var(--muted); font-size: .77rem; font-weight: 700; text-decoration: none; }
+.language-switch a:hover { color: var(--text); }
+.language-switch a[aria-current] { color: var(--warm); background: #ffc48014; }
 
 .action { display: inline-flex; justify-content: center; align-items: center; gap: 10px; min-height: 50px; padding: 12px 19px; border: 1px solid transparent; border-radius: 10px; font-size: .94rem; font-weight: 680; line-height: 1.25; white-space: nowrap; text-decoration: none; transition: background .18s, border-color .18s, transform .18s; }
 .action:hover { transform: translateY(-2px); }
@@ -151,12 +156,14 @@ kbd { display: inline-block; padding: 0 5px; border: 1px solid #9183af67; border
     .feature-card { padding: 12px 14px 18px; }
     .feature-card p { font-size: .975rem; }
 }
+@media (max-width: 740px) {
+    .navigation { display: none; }
+}
 @media (max-width: 620px) {
     :root { scroll-padding-top: 75px; }
     .container { width: calc(100% - 36px); }
     .header-layout { min-height: 59px; }
     .header-layout .brand img { width: 33px; height: 33px; }
-    .navigation { display: none; }
     .hero { padding-block: 43px 38px; }
     .hero-layout { gap: 28px; }
     .hero-description { margin-top: 14px; }
@@ -168,6 +175,15 @@ kbd { display: inline-block; padding: 0 5px; border: 1px solid #9183af67; border
     .install-section { padding-block: 44px 49px; }
     .install-layout { gap: 26px; }
     .install-card { padding: 18px 20px 20px; }
+}
+@media (max-width: 430px) {
+    .header-layout { gap: 6px; }
+    .header-layout .brand { gap: 5px; font-size: 1.14rem; }
+    .header-layout .brand img { width: 28px; height: 28px; }
+    .header-actions { gap: 6px; }
+    .language-switch { gap: 1px; padding: 2px; }
+    .language-switch a { min-width: 24px; font-size: .7rem; }
+    .header-actions .action { padding-inline: 7px; font-size: .81rem; }
 }
 @media (max-width: 370px) {
     .container { width: calc(100% - 28px); }

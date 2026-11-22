@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#14131b">
+    <meta name="description" content="Explore Vibe Explorer for macOS with interactive demos of window groups, tabs, split views, search, themes, and desktops.">
+    <meta property="og:title" content="Vibe Explorer features">
+    <meta property="og:description" content="An interactive guide to window groups, tabs, and split views on Mac.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://vladislav4er.github.io/vibe-explorer-releases/assets/vibe-explorer.png">
+    <meta property="og:url" content="https://vladislav4er.github.io/vibe-explorer-releases/en/features/">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="ru_RU">
+    <link rel="canonical" href="https://vladislav4er.github.io/vibe-explorer-releases/en/features/">
+    <link rel="alternate" hreflang="ru" href="https://vladislav4er.github.io/vibe-explorer-releases/features/">
+    <link rel="alternate" hreflang="en" href="https://vladislav4er.github.io/vibe-explorer-releases/en/features/">
+    <link rel="alternate" hreflang="x-default" href="https://vladislav4er.github.io/vibe-explorer-releases/features/">
+    <title>Features — Vibe Explorer</title>
+    <link rel="icon" type="image/png" href="../../assets/vibe-explorer.png">
+    <link rel="stylesheet" href="../../styles.css?v=language">
+    <link rel="stylesheet" href="../../features/guide.css">
+    <link rel="stylesheet" href="../../features/windows.css">
+    <link rel="stylesheet" href="../../features/display.css">
+    <link rel="stylesheet" href="../../features/workflow.css">
+    <script src="../../downloads.js" defer></script>
+    <script src="../../language.js" defer></script>
+    <script src="../../features/guide.js?v=language" defer></script>
+    <script src="../../features/windows.js?v=language" defer></script>
+    <script src="../../features/display.js?v=language" defer></script>
+    <script src="../../features/workflow.js?v=language" defer></script>
+</head>
+<body class="guide">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+        <div class="container header-layout">
+            <a class="brand" href="../" aria-label="Vibe Explorer home"><img width="38" height="38" src="../../assets/vibe-explorer.png" alt=""><span>Vibe <span class="brand-accent">Explorer</span></span></a>
+            <nav class="navigation" aria-label="Site navigation"><a href="../">Home</a><a aria-current="page" href="./">Features</a><a href="../#install">Installation</a></nav>
+            <div class="header-actions">
+                <nav class="language-switch" aria-label="Language">
+                    <a href="../../features/" hreflang="ru" lang="ru" aria-label="Русский">RU</a>
+                    <a href="./" hreflang="en" lang="en" aria-label="English" aria-current="page">EN</a>
+                </nav>
+                <a class="action action-small" href="https://github.com/Vladislav4er/vibe-explorer-releases/releases/download/v1.0.1/vibe-explorer-1.0.1-arm64.zip" data-download>Download</a>
+            </div>
+        </div>
+    </header>
+    <main id="main">
+        <div class="guide-intro">
+            <div class="container guide-intro-inner">
+                <h1>All <span>features</span></h1>
+                <p>Try organizing windows right here. Create a group, customize its tabs, and move it to another desktop.</p>
+            </div>
+        </div>
+        <noscript><p class="container">Enable JavaScript to try the interactive demos.</p></noscript>
+        <div class="container guide-layout">
+            <nav class="guide-index" aria-label="Feature sections">
+                <a href="#groups"><i class="gi-tabs" aria-hidden="true"></i>Groups and tabs</a>
+                <a href="#split"><i class="gi-split" aria-hidden="true"></i>Split view</a>
+                <a href="#size"><i class="gi-size" aria-hidden="true"></i>Group sizing</a>
+                <a href="#appearance"><i class="gi-view" aria-hidden="true"></i>Appearance and previews</a>
+                <a href="#search"><i class="gi-search" aria-hidden="true"></i>Search and shortcuts</a>
+                <a href="#desktops"><i class="gi-desks" aria-hidden="true"></i>Desktops</a>
+                <a href="#workspace"><i class="gi-save" aria-hidden="true"></i>Saved groups</a>
+                <a href="#updates"><i class="gi-update" aria-hidden="true"></i>Updates</a>
+            </nav>
+            <div class="chapters">
+<section id="groups" class="chapter" aria-labelledby="groups-title">
+  <div class="chapter-copy">
+    <p class="eyebrow">Groups and tabs</p>
+    <h2 id="groups-title">Turn two windows into a group</h2>
+    <p>Hold <kbd>Shift</kbd> and drag a window onto another window or a group’s tab bar. Use the plus button to add windows, rearrange tabs, or move them between groups. You can detach a tab or lock a group’s membership.</p>
+  </div>
+  <div class="lab">
+    <div class="wg-demo" data-window-groups role="group" aria-label="Window grouping and tabs demo">
+      <div class="wg-desk wg-groups-desk">
+        <div class="wg-frame wg-work-group" data-groups-target="work" aria-label="Project group area"></div>
+        <div class="wg-groups-side">
+          <div class="wg-frame" data-groups-target="reference" aria-label="Reference group"></div>
+          <div class="wg-loose" data-groups-target="outside" aria-label="Ungrouped windows">
+            <p>Ungrouped windows</p>
+            <div class="wg-loose-windows" data-loose-windows></div>
+          </div>
+        </div>
+        <span class="wg-shift-key" aria-hidden="true">⇧ Shift</span>
+      </div>
+      <div class="wg-controls" aria-label="Actions for the selected tab">
+        <button type="button" class="wg-emphasis" data-groups-action="group"><kbd>⇧</kbd> Group Windows</button>
+        <div class="wg-control-pair">
+          <button type="button" data-groups-action="left" aria-label="Move tab left" title="Move tab left">←</button>
+          <button type="button" data-groups-action="right" aria-label="Move tab right" title="Move tab right">→</button>
+        </div>
+        <button type="button" data-groups-action="transfer">Move to another group</button>
+        <button type="button" data-groups-action="detach">Detach</button>
+        <button type="button" data-groups-action="lock" aria-pressed="false">Lock group membership</button>
+        <button type="button" class="wg-reset" data-groups-action="reset">Reset</button>
+      </div>
+      <p class="wg-status" data-groups-status aria-live="polite">Hold Shift and drag an ungrouped window, or click Group Windows.</p>
+      <noscript><p class="wg-status">Enable JavaScript to try grouping windows in your browser.</p></noscript>
+    </div>
+  </div>
+<details class="chapter-note"><summary>When you have many tabs</summary><p>Scroll the tab bar or choose All Tabs from its context menu. The bar scrolls automatically as you drag toward an edge. Click a tab’s close button to remove the window from its group and minimize it. You can change the grouping key and delay in Settings.</p></details>
+</section>
+
+<section id="split" class="chapter" aria-labelledby="split-title">
+  <div class="chapter-copy">
+    <p class="eyebrow">Split view</p>
+    <h2 id="split-title">Two windows in one tab</h2>
+    <p>Put windows side by side or stack them vertically. Swap them, replace one, or move the divider. The split keeps its proportions and orientation when you switch to a regular tab and back.</p>
+  </div>
+  <div class="lab">
+    <div class="wg-demo" data-window-split role="group" aria-label="Split layout demo">
+      <div class="wg-desk wg-split-desk">
+        <div class="wg-frame wg-split-frame" data-split-window></div>
+      </div>
+      <div class="wg-controls" aria-label="Split view controls">
+        <button type="button" class="wg-emphasis" data-split-action="rotate">Stack vertically</button>
+        <button type="button" data-split-action="swap">Swap windows</button>
+        <button type="button" data-split-action="toggle">Unpair windows</button>
+        <label class="wg-range">Proportions
+          <input type="range" data-split-range min="24" max="76" value="54" aria-label="Size of the first pane as a percentage">
+        </label>
+      </div>
+      <p class="wg-status" data-split-status aria-live="polite">Drag the divider. Switch to the Browser tab and back to see the split layout stay in place.</p>
+      <noscript><p class="wg-status">Enable JavaScript to try the split view in your browser.</p></noscript>
+    </div>
+  </div>
+</section>
+
+<section id="size" class="chapter" aria-labelledby="size-title">
+    <div class="chapter-copy">
+        <p class="eyebrow">Window size</p>
+        <h2 id="size-title">One size for every tab</h2>
+        <p>Drag the corner to resize the group, then switch tabs. Each window takes the same space. Double-click an empty part of the tab bar to maximize the group within the desktop, then double-click again to restore its previous size.</p>
+    </div>
+    <div class="lab size-lab">
+        <div class="size-stage">
+            <div class="size-window">
+                <div class="size-bar">
+                    <b>Office</b>
+                    <button type="button" data-size-app="calendar" aria-pressed="true">Calendar</button>
+                    <button type="button" data-size-app="mail" aria-pressed="false">Mail</button>
+                </div>
+                <div class="size-content" data-size-pane="calendar">
+                    <h3>Monday</h3>
+                    <div class="size-event"><time>10:00</time><strong>Project discussion</strong></div>
+                    <div class="size-event"><time>14:30</time><strong>Design review</strong></div>
+                </div>
+                <div class="size-content" data-size-pane="mail" hidden>
+                    <h3>Inbox</h3>
+                    <div class="size-letter"><i>M</i><span>Maria<br><strong>Plan for the week</strong></span></div>
+                    <div class="size-letter"><i>A</i><span>Anton<br><strong>Meeting notes</strong></span></div>
+                </div>
+                <span class="size-grip" title="Resize" aria-hidden="true"></span>
+            </div>
+        </div>
+        <div class="size-tools">
+            <label>Size <input type="range" min="0" max="100" value="48" aria-label="Group window size"></label>
+            <button type="button" class="size-zoom" aria-pressed="false">Maximize</button>
+        </div>
+        <details class="size-settings">
+            <summary>Group name and color</summary>
+            <div class="size-customize">
+                <label>Name <input type="text" maxlength="22" value="Office" aria-label="Demo group name" data-size-name></label>
+                <div role="group" aria-label="Group color">
+                    <button type="button" style="--swatch:#febd84" aria-label="Peach" aria-pressed="true" data-swatch></button>
+                    <button type="button" style="--swatch:#aaa4ff" aria-label="Lilac" aria-pressed="false" data-swatch></button>
+                    <button type="button" style="--swatch:#85d2b1" aria-label="Mint" aria-pressed="false" data-swatch></button>
+                </div>
+            </div>
+        </details>
+    </div>
+</section>
+
+<section id="appearance" class="chapter">
+  <div class="chapter-copy">
+    <p class="eyebrow">Appearance</p>
+    <h2>A tab bar that matches your window</h2>
+    <p>The dynamic theme matches the tab bar to the active window’s title bar. You can also choose Light, Dark, or System and adjust tab width, bar height, and font size.</p>
+    <p>Hover previews and the dynamic theme use the macOS Screen Recording permission.</p>
+  </div>
+  <div class="lab view-lab">
+    <div class="view-controls">
+      <div class="view-segments" role="group" aria-label="Tab bar theme">
+        <button type="button" data-view-mode="dynamic" aria-pressed="true">Dynamic</button>
+        <button type="button" data-view-mode="light" aria-pressed="false">Light</button>
+        <button type="button" data-view-mode="dark" aria-pressed="false">Dark</button>
+      </div>
+      <label class="view-size">Tab width <input type="range" min="80" max="170" value="110" step="5"></label>
+      <button class="view-preview-button" type="button" aria-controls="appearance-preview" aria-pressed="false">Show preview</button>
+    </div>
+    <div class="view-stage">
+      <div class="view-window" data-mode="dynamic" data-current="notes">
+        <div class="view-title" role="group" aria-label="Tabs in the Studio group">
+          <span class="view-group-name">Studio</span>
+          <button class="view-tab" type="button" data-view-app="notes" aria-pressed="true" aria-controls="appearance-notes"><span class="view-app-icon" aria-hidden="true">≡</span><em>Notes</em></button>
+          <button class="view-tab" type="button" data-view-app="terminal" aria-pressed="false" aria-controls="appearance-terminal"><span class="view-app-icon view-terminal-icon" aria-hidden="true">›_</span><em>Terminal</em></button>
+        </div>
+        <div class="view-app" id="appearance-notes" data-view-content="notes">
+          <header class="view-app-header"><span class="view-traffic" aria-hidden="true"><i></i><i></i><i></i></span>Notes</header>
+          <div class="view-page">
+            <strong>Today’s plan</strong>
+            <ul><li>Review sketches</li><li>Build a prototype</li><li>Share the result</li></ul>
+          </div>
+        </div>
+        <div class="view-app view-terminal" id="appearance-terminal" data-view-content="terminal" hidden>
+          <header class="view-app-header"><span class="view-traffic" aria-hidden="true"><i></i><i></i><i></i></span>Terminal</header>
+          <div class="view-page"><pre><b>studio %</b> ls
+<span>drafts  prototype</span>
+<b>studio %</b> cd prototype</pre></div>
+        </div>
+        <div class="view-preview" id="appearance-preview" hidden>
+          <div class="view-preview-image" aria-hidden="true"><i></i><i></i><i></i></div>
+          <span class="view-preview-copy">“Notes” preview</span>
+        </div>
+      </div>
+    </div>
+  </div>
+<details class="chapter-note"><summary>More appearance settings</summary><p>In Settings, you can change the bar’s opacity, adjust the font size and weight, and show or hide icons. Use a tab’s context menu to set its color and a custom label for tooltips and menus.</p></details>
+</section>
+
+<section id="search" class="chapter" aria-labelledby="search-title">
+    <div class="chapter-copy">
+        <p class="eyebrow">Search and shortcuts</p>
+        <h2 id="search-title">Find the right window with the keyboard</h2>
+        <p>Press <kbd>⌃⌥S</kbd> and type the name of a window, app, or group. Use the arrow keys to select a result and press Enter to open it. Use <kbd>⌃⌥←</kbd> and <kbd>⌃⌥→</kbd> to switch tabs in the current group.</p>
+    </div>
+    <div class="lab wf-lab wf-search" data-wf-search>
+        <div class="wf-search-scene">
+            <form class="wf-search-card" data-wf-search-form>
+                <div class="wf-chrome">
+                    <span class="wf-lights" aria-hidden="true"><i></i><i></i><i></i></span>
+                    <strong>Window search</strong>
+                </div>
+                <div class="wf-search-field">
+                    <label class="wf-sr" for="wf-window-query">Window, app, or group name</label>
+                    <span class="wf-glass" aria-hidden="true"></span>
+                    <input type="search" id="wf-window-query" role="combobox" autocomplete="off"
+                           placeholder="Window, app, or group" aria-expanded="true" aria-autocomplete="list"
+                           aria-controls="wf-window-results" aria-activedescendant="wf-window-plan">
+                </div>
+                <div class="wf-search-results" id="wf-window-results" role="listbox" aria-label="Open windows">
+                    <button type="button" id="wf-window-plan" role="option" tabindex="-1" aria-selected="true"
+                            data-wf-window data-app="Notes" data-group="Launch" data-glyph="notes">
+                        <span class="wf-app-icon wf-app-icon--notes" aria-hidden="true"></span>
+                        <span class="wf-search-names"><strong>Launch plan</strong><small>Notes · Launch</small></span>
+                    </button>
+                    <button type="button" id="wf-window-build" role="option" tabindex="-1" aria-selected="false"
+                            data-wf-window data-app="Terminal" data-group="Launch" data-glyph="terminal">
+                        <span class="wf-app-icon wf-app-icon--terminal" aria-hidden="true"></span>
+                        <span class="wf-search-names"><strong>Project build</strong><small>Terminal · Launch</small></span>
+                    </button>
+                    <button type="button" id="wf-window-sources" role="option" tabindex="-1" aria-selected="false"
+                            data-wf-window data-app="Browser" data-group="Research" data-glyph="browser">
+                        <span class="wf-app-icon wf-app-icon--browser" aria-hidden="true"></span>
+                        <span class="wf-search-names"><strong>Reading list</strong><small>Browser · Research</small></span>
+                    </button>
+                    <button type="button" id="wf-window-chat" role="option" tabindex="-1" aria-selected="false"
+                            data-wf-window data-app="Messages" data-group="Team" data-glyph="chat">
+                        <span class="wf-app-icon wf-app-icon--chat" aria-hidden="true"></span>
+                        <span class="wf-search-names"><strong>Team chat</strong><small>Messages · Team</small></span>
+                    </button>
+                </div>
+                <p class="wf-empty" data-wf-empty hidden>No windows found</p>
+                <div class="wf-search-hint"><span><kbd>↑</kbd> <kbd>↓</kbd> select</span><span><kbd>↵</kbd> open</span></div>
+            </form>
+
+            <div class="wf-search-result" data-wf-open-window data-glyph="notes">
+                <div class="wf-result-bar">
+                    <span data-wf-open-group>Launch</span>
+                    <strong><i aria-hidden="true"></i><span data-wf-open-app>Notes</span></strong>
+                </div>
+                <div class="wf-result-body">
+                    <p class="wf-mini-label">In front</p>
+                    <strong data-wf-open-title>Launch plan</strong>
+                    <div class="wf-result-art" aria-hidden="true"><i></i><i></i><i></i></div>
+                </div>
+            </div>
+        </div>
+        <div class="wf-actions" role="group" aria-label="Search demo shortcuts">
+            <button type="button" class="wf-command" data-wf-find aria-label="Open search, Control Option S">
+                <kbd>⌃⌥S</kbd> <span>Search</span>
+            </button>
+            <div class="wf-step-buttons" role="group" aria-label="Tab switching">
+                <button type="button" class="wf-command" data-wf-step="-1" aria-label="Previous tab, Control Option Left Arrow"><kbd>⌃⌥←</kbd></button>
+                <button type="button" class="wf-command" data-wf-step="1" aria-label="Next tab, Control Option Right Arrow"><kbd>⌃⌥→</kbd></button>
+            </div>
+        </div>
+        <p class="wf-sr" data-wf-search-status role="status" aria-atomic="true"></p>
+    </div>
+</section>
+
+<section id="desktops" class="chapter">
+  <div class="chapter-copy">
+    <p class="eyebrow">Workspace</p>
+    <h2>Take a group to any display</h2>
+    <p>In Mission Control, drag a visible group window to another regular desktop. The other available windows follow it. Use the group menu to move the group to a different display.</p>
+    <p>Both panes of a split stay visible in Mission Control. New app windows also move to the group’s display when Vibe Explorer can identify the right destination.</p>
+  </div>
+  <div class="lab view-lab">
+    <div class="view-controls">
+      <div class="view-segments" aria-label="Where to move the group" role="group">
+        <button type="button" data-view-kind="space" aria-pressed="true">Desktops</button>
+        <button type="button" data-view-kind="monitor" aria-pressed="false">Displays</button>
+      </div>
+      <span class="view-move-hint" id="display-move-hint">Drag the window or choose a destination</span>
+    </div>
+    <div class="view-places" data-kind="space" role="group" aria-label="Group destinations" aria-describedby="display-move-hint">
+      <div class="view-destination">
+        <button type="button" class="view-target" aria-pressed="true">
+          <span class="view-wallpaper" aria-hidden="true"><span class="view-target-marker"></span></span>
+          <span class="view-destination-name">Desktop 1</span>
+        </button>
+        <div class="view-drag-window" draggable="true" aria-hidden="true" title="Drag a group window">
+          <span class="view-drag-title"><span class="view-drag-dots"><i></i><i></i><i></i></span>Notes</span>
+          <span class="view-drag-content"><i></i><i></i><i></i></span>
+        </div>
+      </div>
+      <div class="view-destination">
+        <button type="button" class="view-target" aria-pressed="false">
+          <span class="view-wallpaper" aria-hidden="true"><span class="view-target-marker"></span></span>
+          <span class="view-destination-name">Desktop 2</span>
+        </button>
+      </div>
+    </div>
+    <p class="view-location" role="status">The “Studio” group is on Desktop 1</p>
+  </div>
+<details class="chapter-note"><summary>Which windows appear in Mission Control</summary><p>Automatic mode may show extra windows from apps with multiple windows. Selected Only minimizes available background windows. Fast Switching keeps them behind the active tab.</p></details>
+</section>
+
+<section id="workspace" class="chapter" aria-labelledby="workspace-title">
+    <div class="chapter-copy">
+        <p class="eyebrow">Work groups</p>
+        <h2 id="workspace-title">Pick up where you left off</h2>
+        <p>Open the group list from the macOS menu bar. Vibe Explorer saves group membership and appearance automatically. On relaunch, it reconnects the open windows it can identify. Closed windows stay listed as waiting.</p>
+    </div>
+    <div class="lab wf-lab wf-work" data-wf-workspace>
+        <div class="wf-desktop-menu">
+            <span class="wf-desktop-glyph" aria-hidden="true"></span>
+            <strong>macOS menu bar</strong>
+            <button type="button" class="wf-menubar-toggle" data-wf-menu-button aria-controls="wf-groups-popover" aria-expanded="true">
+                <span class="wf-menu-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+                <span>Vibe Explorer</span>
+            </button>
+        </div>
+        <div class="wf-work-scene">
+            <div class="wf-popover" id="wf-groups-popover" role="group" aria-labelledby="wf-groups-label" data-wf-menu>
+                <div class="wf-popover-title" id="wf-groups-label">
+                    <span class="wf-menu-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+                    <strong>Groups</strong>
+                </div>
+                <button type="button" class="wf-work-group" data-wf-group="launch" aria-pressed="true" aria-controls="wf-group-window">
+                    <span class="wf-group-dot" aria-hidden="true"></span>
+                    <span><strong>Launch</strong><small>3 windows open</small></span>
+                    <span class="wf-chev" aria-hidden="true"></span>
+                </button>
+                <button type="button" class="wf-work-group" data-wf-group="research" aria-pressed="false" aria-controls="wf-group-window">
+                    <span class="wf-group-dot" aria-hidden="true"></span>
+                    <span><strong>Research</strong><small>1 open · 1 waiting</small></span>
+                    <span class="wf-chev" aria-hidden="true"></span>
+                </button>
+                <button type="button" class="wf-work-group" data-wf-group="team" aria-pressed="false" aria-controls="wf-group-window">
+                    <span class="wf-group-dot" aria-hidden="true"></span>
+                    <span><strong>Team</strong><small>2 windows open</small></span>
+                    <span class="wf-chev" aria-hidden="true"></span>
+                </button>
+            </div>
+            <div class="wf-work-viewport">
+                <div class="wf-work-window" id="wf-group-window" data-wf-work-window data-group-tone="launch">
+                    <div class="wf-work-bar">
+                        <strong data-wf-work-title>Launch</strong>
+                        <div class="wf-work-tabs" data-wf-work-tabs aria-label="Group tabs">
+                            <span class="wf-work-tab">Notes</span>
+                            <span class="wf-work-tab">Terminal</span>
+                            <span class="wf-work-tab">Browser</span>
+                        </div>
+                    </div>
+                    <div class="wf-chrome">
+                        <span class="wf-lights" aria-hidden="true"><i></i><i></i><i></i></span>
+                        <strong data-wf-work-app>Notes</strong>
+                        <button type="button" class="wf-minimize" data-wf-minimize aria-label="Minimize the demo window">−</button>
+                    </div>
+                    <div class="wf-work-body">
+                        <p class="wf-mini-label" data-wf-work-context>3 windows open</p>
+                        <strong data-wf-work-document>Launch plan</strong>
+                        <div class="wf-work-art" aria-hidden="true"><i></i><i></i><i></i></div>
+                    </div>
+                </div>
+                <div class="wf-work-empty" data-wf-work-empty hidden>
+                    <span class="wf-menu-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+                    <strong data-wf-work-empty-label>Window minimized</strong>
+                </div>
+            </div>
+        </div>
+        <div class="wf-work-footer">
+            <div class="wf-actions" role="group" aria-label="Restore the demo group">
+                <button type="button" class="wf-command" data-wf-restore>
+                    <kbd>⌘⇧R</kbd> <span>Restore tab bar</span>
+                </button>
+                <button type="button" class="wf-command" data-wf-restart>Relaunch</button>
+            </div>
+            <details class="wf-backup">
+                <summary>Import and export JSON</summary>
+                <p>In the app, go to Settings → Access and Data → Backup. The file contains your groups and settings.</p>
+            </details>
+            <p class="wf-badge-note"><span class="wf-mini-badge" aria-hidden="true">3</span> Turn on Dock badges in Settings. They appear for apps that report a count.</p>
+        </div>
+        <p class="wf-sr" data-wf-workspace-status role="status" aria-atomic="true"></p>
+    </div>
+<details class="chapter-note"><summary>If a window is no longer available</summary><p>Open the group’s context menu in the menu bar and choose Replace Unavailable Window. Pick another open window to fill the waiting tab.</p></details>
+</section>
+
+<section id="updates" class="chapter" aria-labelledby="updates-title">
+    <div class="chapter-copy">
+        <p class="eyebrow">Updates</p>
+        <h2 id="updates-title">Update right from the app</h2>
+        <p>Check for updates in Vibe Explorer Settings or turn on automatic installation. Try this demo to see how an update from 1.0.0 to 1.0.1 works.</p>
+    </div>
+    <div class="lab update-lab">
+        <div class="update-card">
+            <img src="../../assets/vibe-explorer.png" width="68" height="68" alt="">
+            <div><strong>Vibe Explorer</strong><span data-update-installed>Version 1.0.0</span></div>
+            <p data-update-message role="status">Check whether an update is available.</p>
+            <button class="action action-secondary" type="button" data-update-action>Check for Updates…</button>
+        </div>
+    </div>
+</section>
+            </div>
+        </div>
+    </main>
+    <footer class="site-footer">
+        <div class="container footer-layout">
+            <a class="brand" href="../"><img src="../../assets/vibe-explorer.png" width="30" height="30" alt=""><span>Vibe <span class="brand-accent">Explorer</span></span></a>
+            <div class="footer-author">
+                <strong>Vladislav Karetko</strong>
+                <a href="https://www.linkedin.com/in/karetko/" aria-label="Vladislav Karetko on LinkedIn" title="Vladislav Karetko on LinkedIn">
+                    <img src="../../assets/linkedin.svg?v=warm" width="22" height="22" alt="">
+                </a>
+                <a href="https://github.com/Vladislav4er/vibe-explorer-releases/releases" aria-label="Vibe Explorer releases on GitHub" title="Vibe Explorer releases on GitHub">
+                    <img src="../../assets/github.svg" width="22" height="22" alt="">
+                </a>
+            </div>
+            <a href="../#install">How to install</a>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#14131b">
+    <meta name="description" content="Vibe Explorer brings windows from different Mac apps into tabbed groups. Switch between windows like browser tabs, or open two side by side.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:title" content="Vibe Explorer — Mac windows in tabs">
+    <meta property="og:description" content="Group real macOS windows into tabs and work with two windows side by side.">
+    <meta property="og:url" content="https://vladislav4er.github.io/vibe-explorer-releases/en/">
+    <meta property="og:image" content="https://vladislav4er.github.io/vibe-explorer-releases/assets/vibe-explorer.png">
+    <title>Vibe Explorer — Mac windows in tabs</title>
+    <link rel="canonical" href="https://vladislav4er.github.io/vibe-explorer-releases/en/">
+    <link rel="alternate" hreflang="ru" href="https://vladislav4er.github.io/vibe-explorer-releases/">
+    <link rel="alternate" hreflang="en" href="https://vladislav4er.github.io/vibe-explorer-releases/en/">
+    <link rel="alternate" hreflang="x-default" href="https://vladislav4er.github.io/vibe-explorer-releases/">
+    <link rel="icon" href="../assets/vibe-explorer.png" type="image/png">
+    <link rel="stylesheet" href="../styles.css?v=language">
+    <link rel="stylesheet" href="../demo.css">
+    <script src="../downloads.js" defer></script>
+    <script src="../demo.js?v=language" defer></script>
+    <script src="../language.js" defer></script>
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+        <div class="container header-layout">
+            <a class="brand" href="#top" aria-label="Vibe Explorer home">
+                <img src="../assets/vibe-explorer.png" width="38" height="38" alt="">
+                <span>Vibe <span class="brand-accent">Explorer</span></span>
+            </a>
+            <nav class="navigation" aria-label="Page sections">
+                <a href="#demo">Demo</a>
+                <a href="#features">Features</a>
+                <a href="#install">Installation</a>
+            </nav>
+            <div class="header-actions">
+                <nav class="language-switch" aria-label="Language">
+                    <a href="../" hreflang="ru" lang="ru" aria-label="Русский">RU</a>
+                    <a href="./" hreflang="en" lang="en" aria-label="English" aria-current="page">EN</a>
+                </nav>
+                <a class="action action-small" data-download href="https://github.com/Vladislav4er/vibe-explorer-releases/releases/download/v1.0.1/vibe-explorer-1.0.1-arm64.zip">Download</a>
+            </div>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="hero" id="top" aria-labelledby="hero-title">
+            <div class="container hero-layout">
+                <div class="hero-copy">
+                    <p class="eyebrow">Window manager for macOS</p>
+                    <h1 id="hero-title">Mac windows<br><span>in tabs</span></h1>
+                    <p class="hero-description">Group windows from different apps by what you’re working on. Switch between them like browser tabs, or open two side by side in one tab.</p>
+                    <div class="hero-actions">
+                        <a class="action action-primary" data-download href="https://github.com/Vladislav4er/vibe-explorer-releases/releases/download/v1.0.1/vibe-explorer-1.0.1-arm64.zip">Download for Mac</a>
+                        <a class="action action-secondary" href="#install">How to install</a>
+                    </div>
+                    <p class="requirements"><span data-version>v1.0.1</span><span>Apple Silicon</span><span>macOS 14+</span></p>
+                </div>
+                <div class="hero-demo" id="demo">
+                    <div class="vibe-demo" data-vibe-demo data-phase="ready" data-view="notes" data-paired="false" data-mode="group" role="group" aria-label="Vibe Explorer demo">
+                      <div class="vd-screen">
+                        <div class="vd-menubar" aria-hidden="true">
+                          <span class="vd-menubar-mark"></span>
+                          <span>Vibe Explorer</span>
+                          <span class="vd-menubar-spacer"></span>
+                          <span class="vd-menubar-stack"></span>
+                        </div>
+
+                        <div class="vd-window">
+                          <div class="vd-tab-strip" role="tablist" aria-label="Project tabs">
+                            <span class="vd-group-name" aria-hidden="true">Project</span>
+                            <button type="button" class="vd-tab" role="tab" id="vd-tab-notes" data-demo-tab="notes" aria-controls="vd-panel" aria-selected="true">
+                              <span class="vd-tab-icon vd-tab-icon--notes" aria-hidden="true"></span><span class="vd-tab-label">Notes</span>
+                            </button>
+                            <button type="button" class="vd-tab" role="tab" id="vd-tab-terminal" data-demo-tab="terminal" aria-controls="vd-panel" aria-selected="false" tabindex="-1" hidden>
+                              <span class="vd-tab-icon vd-tab-icon--terminal" aria-hidden="true">›</span><span class="vd-tab-label">Terminal</span>
+                            </button>
+                            <button type="button" class="vd-tab vd-tab--pair" role="tab" id="vd-tab-split" data-demo-tab="split" aria-controls="vd-panel" aria-selected="false" tabindex="-1" hidden>
+                              <span class="vd-tab-icon vd-tab-icon--split" aria-hidden="true"></span><span class="vd-tab-label">Notes + Terminal</span>
+                            </button>
+                            <button type="button" class="vd-tab" role="tab" id="vd-tab-browser" data-demo-tab="browser" aria-controls="vd-panel" aria-selected="false" tabindex="-1">
+                              <span class="vd-tab-icon vd-tab-icon--browser" aria-hidden="true"></span><span class="vd-tab-label">Browser</span>
+                            </button>
+                          </div>
+
+                          <div class="vd-panes" id="vd-panel" role="tabpanel" aria-labelledby="vd-tab-notes" tabindex="0">
+                            <div class="vd-pane vd-notes" data-demo-pane="notes">
+                              <div class="vd-titlebar">
+                                <span class="vd-lights" aria-hidden="true"><i></i><i></i><i></i></span>
+                                <span>Notes</span>
+                              </div>
+                              <div class="vd-notes-body">
+                                <p class="vd-notes-kicker">Workspace</p>
+                                <p class="vd-notes-heading">Project plan</p>
+                                <ul class="vd-notes-list">
+                                  <li><span aria-hidden="true">✓</span> Gather resources</li>
+                                  <li><span aria-hidden="true"></span> Review the design</li>
+                                  <li><span aria-hidden="true"></span> Prepare for launch</li>
+                                </ul>
+                              </div>
+                            </div>
+
+                            <div class="vd-pane vd-terminal" data-demo-pane="terminal" hidden>
+                              <div class="vd-titlebar">
+                                <span class="vd-lights" aria-hidden="true"><i></i><i></i><i></i></span>
+                                <span>Terminal</span>
+                              </div>
+                              <div class="vd-terminal-body">
+                                <p><b>❯</b> workspace</p>
+                                <p class="vd-terminal-muted">ready for work</p>
+                                <p><b>❯</b> <span class="vd-caret" aria-hidden="true"></span></p>
+                              </div>
+                            </div>
+
+                            <div class="vd-pane vd-browser" data-demo-pane="browser" hidden>
+                              <div class="vd-titlebar">
+                                <span class="vd-lights" aria-hidden="true"><i></i><i></i><i></i></span>
+                                <span class="vd-address">Project resources</span>
+                              </div>
+                              <div class="vd-browser-body">
+                                <p>Resources</p>
+                                <div class="vd-browser-cards" aria-hidden="true"><i></i><i></i><i></i></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="vd-detached vd-terminal" aria-hidden="true">
+                          <div class="vd-titlebar">
+                            <span class="vd-lights"><i></i><i></i><i></i></span>
+                            <span>Terminal</span>
+                          </div>
+                          <div class="vd-terminal-body">
+                            <p><b>❯</b> workspace</p>
+                            <p><b>❯</b> <span class="vd-caret"></span></p>
+                          </div>
+                        </div>
+                        <div class="vd-drag-indicator" aria-hidden="true"><span>⇧</span><i></i></div>
+                      </div>
+
+                      <div class="vd-controls" role="group" aria-label="Demo controls">
+                        <span class="vd-caption">Demo<span class="vd-caption-long"> controls</span></span>
+                        <button type="button" data-demo-action="group" aria-pressed="true" aria-label="Group windows with Shift">
+                          <span aria-hidden="true">⇧</span> Group
+                        </button>
+                        <button type="button" data-demo-action="switch" aria-pressed="false" aria-label="Switch tabs">
+                          <span aria-hidden="true">⇄</span> Tabs
+                        </button>
+                        <button type="button" data-demo-action="split" aria-pressed="false" aria-label="Open a split tab">
+                          <span class="vd-control-split" aria-hidden="true"></span> Split
+                        </button>
+                      </div>
+                      <p class="vd-sr-only" data-demo-status aria-live="polite"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container feature-section" id="features" aria-labelledby="features-title">
+            <div class="section-intro">
+                <p class="eyebrow">Features</p>
+                <h2 id="features-title">A different set of windows for each task</h2>
+                <p>Keep project windows, messages, and tools in separate groups. Arrange them across your displays and return to saved groups after a restart.</p>
+            </div>
+            <div class="feature-grid">
+                <article class="feature-card">
+                    <div class="feature-art art-groups" aria-hidden="true">
+                        <div class="mini-strip mini-strip-back"><i></i><i></i><i></i></div>
+                        <div class="mini-strip mini-strip-front"><i></i><i></i><i></i></div>
+                    </div>
+                    <h3><a href="./features/#groups">Window groups</a></h3>
+                    <p>Hold <kbd>Shift</kbd> and drag one window onto another. Name your group, choose a color, and rearrange its tabs.</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-art art-split" aria-hidden="true">
+                        <div class="mini-split"><div class="mini-split-bar"><i></i><i></i></div><div class="mini-panes"><i></i><i></i></div></div>
+                    </div>
+                    <h3><a href="./features/#split">Two windows in one tab</a></h3>
+                    <p>Put two windows in a split tab with its own layout and proportions. Switch between the pair and your regular tabs.</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-art art-preview" aria-hidden="true">
+                        <div class="mini-preview-tab"><i></i><i></i></div>
+                        <div class="mini-preview"><i></i><i></i><i></i></div>
+                    </div>
+                    <h3><a href="./features/#appearance">Previews and appearance</a></h3>
+                    <p>Hover over a tab to preview its window. Choose a light or dark tab bar, or let it match the color of the active window.</p>
+                </article>
+            </div>
+            <a class="action action-secondary feature-link" href="./features/">All features</a>
+        </section>
+
+        <section class="install-section" id="install" aria-labelledby="install-title">
+            <div class="container install-layout">
+                <div class="install-guide">
+                    <p class="eyebrow">Installation</p>
+                    <h2 id="install-title">Start with two windows</h2>
+                    <ol class="steps" role="list">
+                        <li><div><h3>Install the app</h3><p>Unzip the download and drag vibe-explorer.app into your Applications folder.</p></div></li>
+                        <li><div><h3>Allow window management</h3><p>On first launch, enable vibe-explorer in System Settings under Privacy &amp; Security → Accessibility. For window previews and dynamic colors, grant screen recording permission in the app’s settings.</p></div></li>
+                        <li><div><h3>Create your first group</h3><p>Open two windows. Hold <kbd>Shift</kbd> and drag one onto the other.</p></div></li>
+                    </ol>
+                </div>
+                <aside class="install-card" aria-label="Download and system requirements">
+                    <img class="install-icon" src="../assets/vibe-explorer.png" width="68" height="68" alt="" loading="lazy">
+                    <h3>Vibe Explorer for Mac</h3>
+                    <p>Apple silicon · macOS 14 or later</p>
+                    <a class="action action-primary" data-download href="https://github.com/Vladislav4er/vibe-explorer-releases/releases/download/v1.0.1/vibe-explorer-1.0.1-arm64.zip">Download ZIP <span data-version>v1.0.1</span></a>
+                    <details>
+                        <summary>If macOS asks you to confirm the first launch</summary>
+                        <p>This build is signed with a local certificate. If macOS stops the first launch, choose Open Anyway under Privacy &amp; Security for a build you trust. <a href="https://support.apple.com/en-us/102445">Apple’s instructions</a>.</p>
+                    </details>
+                    <p class="install-note">Update directly from the app.</p>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-layout">
+            <a class="brand" href="#top"><img src="../assets/vibe-explorer.png" width="30" height="30" alt=""><span>Vibe <span class="brand-accent">Explorer</span></span></a>
+            <div class="footer-author">
+                <strong>Vladislav Karetko</strong>
+                <a href="https://www.linkedin.com/in/karetko/" aria-label="Vladislav Karetko on LinkedIn" title="Vladislav Karetko on LinkedIn">
+                    <img src="../assets/linkedin.svg?v=warm" width="22" height="22" alt="">
+                </a>
+                <a href="https://github.com/Vladislav4er/vibe-explorer-releases/releases" aria-label="Vibe Explorer releases on GitHub" title="Vibe Explorer releases on GitHub">
+                    <img src="../assets/github.svg" width="22" height="22" alt="">
+                </a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
