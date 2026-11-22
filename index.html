@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#14131b">
+    <meta name="description" content="vibe-explorer объединяет окна приложений macOS во вкладки и рабочие группы. Скачайте сборку для Apple Silicon.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="vibe-explorer — окна по задачам">
+    <meta property="og:description" content="Вкладки, рабочие группы и сплит из настоящих окон macOS.">
+    <meta property="og:url" content="https://vladislav4er.github.io/vibe-explorer-releases/">
+    <meta property="og:image" content="https://vladislav4er.github.io/vibe-explorer-releases/assets/vibe-explorer.png">
+    <title>vibe-explorer — окна по задачам</title>
+    <link rel="canonical" href="https://vladislav4er.github.io/vibe-explorer-releases/">
+    <link rel="icon" href="./assets/vibe-explorer.png" type="image/png">
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./demo.css">
+    <script src="./downloads.js" defer></script>
+    <script src="./demo.js" defer></script>
+</head>
+<body>
+    <a class="skip-link" href="#main">Перейти к содержанию</a>
+    <header class="site-header">
+        <div class="container header-layout">
+            <a class="brand" href="#top" aria-label="vibe-explorer — начало страницы">
+                <img src="./assets/vibe-explorer.png" width="38" height="38" alt="">
+                <span>vibe<span class="brand-dash">-</span>explorer</span>
+            </a>
+            <nav class="navigation" aria-label="Разделы страницы">
+                <a href="#demo">Демо</a>
+                <a href="#features">Возможности</a>
+                <a href="#install">Установка</a>
+            </nav>
+            <a class="action action-small" data-download href="https://github.com/Vladislav4er/vibe-explorer-releases/releases/download/v1.0.1/vibe-explorer-1.0.1-arm64.zip">Скачать</a>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="hero" id="top" aria-labelledby="hero-title">
+            <div class="container hero-layout">
+                <div class="hero-copy">
+                    <p class="eyebrow">Менеджер окон для macOS</p>
+                    <h1 id="hero-title">Окна по задачам.<br><span>В одном месте.</span></h1>
+                    <p class="hero-description">Соберите окна разных приложений в группы. Переключайтесь между ними как между вкладками и открывайте два окна рядом.</p>
+                    <div class="hero-actions">
+                        <a class="action action-primary" data-download href="https://github.com/Vladislav4er/vibe-explorer-releases/releases/download/v1.0.1/vibe-explorer-1.0.1-arm64.zip">Скачать для Mac</a>
+                        <a class="action action-secondary" href="#install">Как установить</a>
+                    </div>
+                    <p class="requirements"><span data-version>v1.0.1</span><span>Apple Silicon</span><span>macOS 14+</span></p>
+                </div>
+                <div class="hero-demo" id="demo">
+                    <div class="vibe-demo" data-vibe-demo data-phase="ready" data-view="notes" data-paired="false" data-mode="group" role="group" aria-label="Демонстрация vibe-explorer">
+                      <div class="vd-screen">
+                        <div class="vd-menubar" aria-hidden="true">
+                          <span class="vd-menubar-mark"></span>
+                          <span>vibe-explorer</span>
+                          <span class="vd-menubar-spacer"></span>
+                          <span class="vd-menubar-stack"></span>
+                        </div>
+
+                        <div class="vd-window">
+                          <div class="vd-tab-strip" role="tablist" aria-label="Вкладки проекта">
+                            <span class="vd-group-name" aria-hidden="true">Проект</span>
+                            <button type="button" class="vd-tab" role="tab" id="vd-tab-notes" data-demo-tab="notes" aria-controls="vd-panel" aria-selected="true">
+                              <span class="vd-tab-icon vd-tab-icon--notes" aria-hidden="true"></span><span class="vd-tab-label">Заметки</span>
+                            </button>
+                            <button type="button" class="vd-tab" role="tab" id="vd-tab-terminal" data-demo-tab="terminal" aria-controls="vd-panel" aria-selected="false" tabindex="-1" hidden>
+                              <span class="vd-tab-icon vd-tab-icon--terminal" aria-hidden="true">›</span><span class="vd-tab-label">Терминал</span>
+                            </button>
+                            <button type="button" class="vd-tab vd-tab--pair" role="tab" id="vd-tab-split" data-demo-tab="split" aria-controls="vd-panel" aria-selected="false" tabindex="-1" hidden>
+                              <span class="vd-tab-icon vd-tab-icon--split" aria-hidden="true"></span><span class="vd-tab-label">Заметки + Терминал</span>
+                            </button>
+                            <button type="button" class="vd-tab" role="tab" id="vd-tab-browser" data-demo-tab="browser" aria-controls="vd-panel" aria-selected="false" tabindex="-1">
+                              <span class="vd-tab-icon vd-tab-icon--browser" aria-hidden="true"></span><span class="vd-tab-label">Браузер</span>
+                            </button>
+                          </div>
+
+                          <div class="vd-panes" id="vd-panel" role="tabpanel" aria-labelledby="vd-tab-notes" tabindex="0">
+                            <div class="vd-pane vd-notes" data-demo-pane="notes">
+                              <div class="vd-titlebar">
+                                <span class="vd-lights" aria-hidden="true"><i></i><i></i><i></i></span>
+                                <span>Заметки</span>
+                              </div>
+                              <div class="vd-notes-body">
+                                <p class="vd-notes-kicker">Рабочая папка</p>
+                                <p class="vd-notes-heading">План проекта</p>
+                                <ul class="vd-notes-list">
+                                  <li><span aria-hidden="true">✓</span> Собрать материалы</li>
+                                  <li><span aria-hidden="true"></span> Проверить макет</li>
+                                  <li><span aria-hidden="true"></span> Подготовить запуск</li>
+                                </ul>
+                              </div>
+                            </div>
+
+                            <div class="vd-pane vd-terminal" data-demo-pane="terminal" hidden>
+                              <div class="vd-titlebar">
+                                <span class="vd-lights" aria-hidden="true"><i></i><i></i><i></i></span>
+                                <span>Терминал</span>
+                              </div>
+                              <div class="vd-terminal-body">
+                                <p><b>❯</b> workspace</p>
+                                <p class="vd-terminal-muted">ready for work</p>
+                                <p><b>❯</b> <span class="vd-caret" aria-hidden="true"></span></p>
+                              </div>
+                            </div>
+
+                            <div class="vd-pane vd-browser" data-demo-pane="browser" hidden>
+                              <div class="vd-titlebar">
+                                <span class="vd-lights" aria-hidden="true"><i></i><i></i><i></i></span>
+                                <span class="vd-address">Материалы проекта</span>
+                              </div>
+                              <div class="vd-browser-body">
+                                <p>Материалы</p>
+                                <div class="vd-browser-cards" aria-hidden="true"><i></i><i></i><i></i></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="vd-detached vd-terminal" aria-hidden="true">
+                          <div class="vd-titlebar">
+                            <span class="vd-lights"><i></i><i></i><i></i></span>
+                            <span>Терминал</span>
+                          </div>
+                          <div class="vd-terminal-body">
+                            <p><b>❯</b> workspace</p>
+                            <p><b>❯</b> <span class="vd-caret"></span></p>
+                          </div>
+                        </div>
+                        <div class="vd-drag-indicator" aria-hidden="true"><span>⇧</span><i></i></div>
+                      </div>
+
+                      <div class="vd-controls" role="group" aria-label="Режим демонстрации">
+                        <span class="vd-caption">Демо<span class="vd-caption-long"> интерфейса</span></span>
+                        <button type="button" data-demo-action="group" aria-pressed="true" aria-label="Сгруппировать окна с Shift">
+                          <span aria-hidden="true">⇧</span> Собрать
+                        </button>
+                        <button type="button" data-demo-action="switch" aria-pressed="false" aria-label="Переключить вкладку">
+                          <span aria-hidden="true">⇄</span> Вкладки
+                        </button>
+                        <button type="button" data-demo-action="split" aria-pressed="false" aria-label="Открыть общую вкладку сплита">
+                          <span class="vd-control-split" aria-hidden="true"></span> Сплит
+                        </button>
+                      </div>
+                      <p class="vd-sr-only" data-demo-status aria-live="polite"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container feature-section" id="features" aria-labelledby="features-title">
+            <div class="section-intro">
+                <p class="eyebrow">Возможности</p>
+                <h2 id="features-title">Свой набор окон для каждой задачи</h2>
+                <p>Проект, переписка и инструменты могут жить в разных группах. Расположите их на нужных мониторах и возвращайтесь к сохранённым группам после перезапуска.</p>
+            </div>
+            <div class="feature-grid">
+                <article class="feature-card">
+                    <div class="feature-art art-groups" aria-hidden="true">
+                        <div class="mini-strip mini-strip-back"><i></i><i></i><i></i></div>
+                        <div class="mini-strip mini-strip-front"><i></i><i></i><i></i></div>
+                    </div>
+                    <h3>Группы окон</h3>
+                    <p>Удерживайте <kbd>Shift</kbd> и перетащите одно окно на другое. Дайте группе имя, выберите цвет и меняйте порядок вкладок.</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-art art-split" aria-hidden="true">
+                        <div class="mini-split"><div class="mini-split-bar"><i></i><i></i></div><div class="mini-panes"><i></i><i></i></div></div>
+                    </div>
+                    <h3>Сплит как вкладка</h3>
+                    <p>Два окна образуют вкладку со своей ориентацией и пропорциями. Переключайтесь между ней и обычными вкладками.</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-art art-preview" aria-hidden="true">
+                        <div class="mini-preview-tab"><i></i><i></i></div>
+                        <div class="mini-preview"><i></i><i></i><i></i></div>
+                    </div>
+                    <h3>Превью и оформление</h3>
+                    <p>Посмотрите на окно, наведя курсор на вкладку. Выберите светлую или тёмную панель либо подстройте её цвет под активное окно.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="install-section" id="install" aria-labelledby="install-title">
+            <div class="container install-layout">
+                <div class="install-guide">
+                    <p class="eyebrow">Установка</p>
+                    <h2 id="install-title">Начните с двух окон</h2>
+                    <ol class="steps" role="list">
+                        <li><div><h3>Установите приложение</h3><p>Распакуйте ZIP и перенесите vibe-explorer в папку «Программы».</p></div></li>
+                        <li><div><h3>Разрешите управление окнами</h3><p>При первом запуске включите vibe-explorer в разделе «Конфиденциальность и безопасность → Универсальный доступ». Для превью и динамической темы разрешите запись экрана в настройках приложения.</p></div></li>
+                        <li><div><h3>Соберите первую группу</h3><p>Откройте два окна. Удерживая <kbd>Shift</kbd>, перетащите одно на другое.</p></div></li>
+                    </ol>
+                </div>
+                <aside class="install-card" aria-label="Скачивание и системные требования">
+                    <img class="install-icon" src="./assets/vibe-explorer.png" width="68" height="68" alt="" loading="lazy">
+                    <h3>vibe-explorer для Mac</h3>
+                    <p>Apple Silicon · macOS 14 и новее</p>
+                    <a class="action action-primary" data-download href="https://github.com/Vladislav4er/vibe-explorer-releases/releases/download/v1.0.1/vibe-explorer-1.0.1-arm64.zip">Скачать ZIP <span data-version>v1.0.1</span></a>
+                    <a class="release-history" href="https://github.com/Vladislav4er/vibe-explorer-releases/releases">Все версии на GitHub</a>
+                    <details>
+                        <summary>Если macOS просит подтвердить запуск</summary>
+                        <p>Сборка подписана локальным сертификатом. Если macOS остановит первый запуск, для доверенной сборки можно выбрать «Открыть всё равно» в разделе «Конфиденциальность и безопасность». <a href="https://support.apple.com/ru-ru/102445">Инструкция Apple</a>.</p>
+                    </details>
+                    <p class="install-note">Обновления приходят прямо в приложение.</p>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-layout">
+            <a class="brand" href="#top"><img src="./assets/vibe-explorer.png" width="30" height="30" alt="">vibe-explorer</a>
+            <a href="https://github.com/Vladislav4er/vibe-explorer-releases/releases">Релизы на GitHub</a>
+        </div>
+    </footer>
+</body>
+</html>
