@@ -1,3 +1,11 @@
+@font-face {
+    font-family: "Bricolage Grotesque";
+    src: url("./assets/bricolage-wordmark.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+}
+
 :root {
     color-scheme: dark;
     --background: #14131b;
@@ -30,9 +38,10 @@ h1, h2, h3, p { margin: 0; }
 
 .site-header { position: sticky; top: 0; z-index: 5; background: rgba(20, 19, 27, .92); border-bottom: 1px solid #ffffff0c; backdrop-filter: blur(16px); }
 .header-layout, .footer-layout { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-.header-layout { min-height: 72px; }
-.brand { display: inline-flex; align-items: center; gap: 9px; font-size: 1.06rem; font-weight: 770; letter-spacing: -.035em; white-space: nowrap; text-decoration: none; }
-.brand-dash { color: var(--warm); }
+.header-layout { min-height: 72px; gap: clamp(12px, 2vw, 24px); }
+.brand { display: inline-flex; align-items: center; gap: 9px; font: 700 clamp(1.3rem, 2.5vw, 1.72rem)/1.1 "Bricolage Grotesque", -apple-system, BlinkMacSystemFont, sans-serif; letter-spacing: -.03em; white-space: nowrap; text-decoration: none; }
+.brand img { flex-shrink: 0; }
+.brand-accent { color: var(--warm); }
 .navigation { display: flex; align-items: center; gap: clamp(20px, 3vw, 40px); }
 .navigation a, .site-footer a:not(.brand) { font-size: .94rem; color: var(--muted); text-decoration: none; transition: color .2s; }
 .navigation a:hover, .site-footer a:hover { color: var(--text); }
@@ -52,6 +61,7 @@ h1, h2, h3, p { margin: 0; }
 .hero-copy, .hero-demo { min-width: 0; }
 .eyebrow { color: var(--warm); font-size: .85rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
 h1 { margin-top: 15px; font-size: clamp(2.45rem, 4.72vw, 4.3rem); line-height: 1.045; font-weight: 790; letter-spacing: -.068em; }
+.hero h1 { letter-spacing: -.052em; }
 h1 span { display: inline-block; padding-bottom: .08em; color: var(--warm); background: linear-gradient(100deg, #ffd39c 10%, #fcb477 64%, #e69bb8 100%); background-clip: text; -webkit-text-fill-color: transparent; }
 .hero-description { max-width: 31rem; margin-top: 22px; color: var(--muted); font-size: clamp(1.04rem, 1.6vw, 1.21rem); line-height: 1.55; }
 .hero-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 28px; }
@@ -113,7 +123,7 @@ kbd { display: inline-block; padding: 0 5px; border: 1px solid #9183af67; border
 .install-note { font-size: .87rem; }
 
 .site-footer { border-top: 1px solid #ffffff14; padding-block: 21px; }
-.site-footer .brand { font-size: .97rem; }
+.site-footer .brand { font-size: 1.2rem; }
 .footer-author { display: flex; align-items: center; gap: 3px; font-size: .94rem; line-height: 1.25; }
 .footer-author strong { margin-right: 7px; color: var(--text); font-weight: 600; }
 .footer-author a { display: grid; flex: 0 0 40px; place-items: center; height: 40px; border-radius: 9px; }
