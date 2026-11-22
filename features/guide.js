@@ -107,11 +107,11 @@
     const installed = update.querySelector("[data-update-installed]");
     const status = update.querySelector("[data-update-message]");
     const nextVersion = english
-        ? ["Version 1.0.0", "Version 1.0.1 is available.", "Install and Restart"]
-        : ["Версия 1.0.0", "Доступна версия 1.0.1.", "Установить и перезапустить"];
+        ? ["Version 1.0.1", "Version 1.0.2 is available.", "Install and Restart"]
+        : ["Версия 1.0.1", "Доступна версия 1.0.2.", "Установить и перезапустить"];
     const updated = english
-        ? ["Version 1.0.1", "Update installed. Your groups are available after restart.", "Replay Demo"]
-        : ["Версия 1.0.1", "Обновление установлено. Группы доступны после перезапуска.", "Повторить демо"];
+        ? ["Version 1.0.2", "Update installed. Your groups are available after restart.", "Replay Demo"]
+        : ["Версия 1.0.2", "Обновление установлено. Группы доступны после перезапуска.", "Повторить демо"];
     const updateSteps = [
         [installed.textContent, status.textContent, updateAction.textContent],
         nextVersion,
